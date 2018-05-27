@@ -23,5 +23,18 @@ namespace Mleczarnia
         {
             InitializeComponent();
         }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow wnd = new MainWindow();
+            wnd.Show();
+            this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ProductionEditWindow wnd = new ProductionEditWindow();
+            wnd.Show();
+            this.Close();
+        }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mleczarnia"
         mc:Ignorable="d"
-        Title="Produkty" Height="370.415" Width="434.964">
+        Title="Produkcja" Height="370.415" Width="434.964">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -48,8 +48,8 @@
             <Label Grid.Row="3" Grid.Column="1" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">22000</Label>
             <TextBlock Grid.Row="4" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">Ilość w magazynie:</TextBlock>
             <Label Grid.Row="4" Grid.Column="1" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">10250</Label>
-            <Button Grid.Row="5" Grid.ColumnSpan="2" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="18" VerticalAlignment="Center">Szczególy produktu</Button>
-            <Button Grid.Row="6" Grid.ColumnSpan="2" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" VerticalAlignment="Center">Powrót</Button>
+            <Button Grid.Row="5" Grid.ColumnSpan="2" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="18" VerticalAlignment="Center" Click="Button_Click_1">Edytuj</Button>
+            <Button Grid.Row="6" Grid.ColumnSpan="2" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" VerticalAlignment="Center" Click="Button_Click">Powrót</Button>
         </Grid>
     </Grid>
 </Window>

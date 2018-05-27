@@ -54,6 +54,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FarmsAddWinow.xaml.cs">
+      <DependentUpon>FarmsAddWinow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FarmsEditWindow.xaml.cs">
+      <DependentUpon>FarmsEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProductionEditWindow.xaml.cs">
+      <DependentUpon>ProductionEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAddWindow.xaml.cs">
+      <DependentUpon>ProductsAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsEditWindow.xaml.cs">
+      <DependentUpon>ProductsEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalesEditWindow.xaml.cs">
+      <DependentUpon>SalesEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalesWindow.xaml.cs">
+      <DependentUpon>SalesWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="FarmsAddWinow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FarmsEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FarmsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -73,11 +102,31 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ProductionEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ProductionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ProductsAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProductsEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ProductsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalesEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
