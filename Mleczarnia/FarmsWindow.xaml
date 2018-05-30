@@ -15,7 +15,6 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock  Margin="5px" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" FontFamily="Tw Cen MT Condensed" FontSize="24">Gospodarstwa</TextBlock>
         <Grid Margin="5px" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>

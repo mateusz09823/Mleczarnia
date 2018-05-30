@@ -32,9 +32,14 @@ namespace Mleczarnia
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            ProductionEditWindow wnd = new ProductionEditWindow();
+            ProductionNewWindow wnd = new ProductionNewWindow();
             wnd.Show();
             this.Close();
+        }
+
+        private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

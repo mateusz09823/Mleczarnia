@@ -26,8 +26,9 @@
         <TextBox x:Name="Surname" HorizontalAlignment="Left" Height="23" Margin="4.8,15.6,0,15" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
         <TextBlock Grid.Column="0" Grid.Row="1" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="21" Width="85" Margin="31,16.6,31.2,16">Typ:</TextBlock>
         <TextBox x:Name="Adress" HorizontalAlignment="Left" Height="23" Margin="4.8,16,0,15.4" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
-        <TextBlock Grid.Column="0" Grid.Row="2"  FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Width="114" Margin="31,16,2.2,16.4">Ilość mleka na 1kg:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="2" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="21" Width="106" Margin="31,17,10.2,16.4">Ilość w opakowaniu:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="3"  FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Width="114" Margin="31,16,2.2,16.4">Ilość mleka na 1kg:</TextBlock>
         <TextBox x:Name="NIP" HorizontalAlignment="Left" Height="23" Margin="4.8,15.6,0,15" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
-        <TextBlock Grid.Column="0" Grid.Row="3" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="21" Width="85" Margin="31,16.6,31.2,16">Czas produkcji:</TextBlock>
+
     </Grid>
 </Window>

@@ -26,40 +26,49 @@ namespace Mleczarnia
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        {//gospodarstwa
             FarmsWindow wnd = new FarmsWindow();
             wnd.Show();
             this.Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
+        {//produkty
             ProductsWindow wnd = new ProductsWindow();
             wnd.Show();
             this.Close();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
+        {//produkcja
             ProductionWindow wnd = new ProductionWindow();
             wnd.Show();
             this.Close();
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
+        {//sprzedaż
             SalesWindow wnd = new SalesWindow();
             wnd.Show();
             this.Close();
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-
+        {//statystyki
+            StatisticsProductsWindow wnd = new StatisticsProductsWindow();
+            wnd.Show();
+            this.Close();
         }
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
-        {
+        {//wyjście
+            this.Close();
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {//dostawy
+            SupplyWindow wnd = new SupplyWindow();
+            wnd.Show();
             this.Close();
         }
     }

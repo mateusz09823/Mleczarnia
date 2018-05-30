@@ -33,7 +33,7 @@ namespace Mleczarnia
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            SalesEditWindow wnd = new SalesEditWindow();
+            SalesNewWindow wnd = new SalesNewWindow();
             wnd.Show();
             this.Close();
         }

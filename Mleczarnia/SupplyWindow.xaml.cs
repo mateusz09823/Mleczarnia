@@ -15,27 +15,27 @@ using System.Windows.Shapes;
 namespace Mleczarnia
 {
     /// <summary>
-    /// Logika interakcji dla klasy ProductionEditWindow.xaml
+    /// Logika interakcji dla klasy SupplyWindow.xaml
     /// </summary>
-    public partial class ProductionEditWindow : Window
+    public partial class SupplyWindow : Window
     {
-        public ProductionEditWindow()
+        public SupplyWindow()
         {
             InitializeComponent();
-        }
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            ProductionWindow wnd = new ProductionWindow();
-            wnd.Show();
-            this.Close();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ProductionWindow wnd = new ProductionWindow();
+            MainWindow wnd = new MainWindow();
             wnd.Show();
             this.Close();
-            //dodaj
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            SupplyNewWindow wnd = new SupplyNewWindow();
+            wnd.Show();
+            this.Close();
         }
     }
 }
