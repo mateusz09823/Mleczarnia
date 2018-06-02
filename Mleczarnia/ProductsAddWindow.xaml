@@ -23,12 +23,12 @@
         <Button Margin="5,5,5.2,5.4" Content="Powrót" Grid.Column="0" Grid.Row="4"  FontSize="20" Click="Button_Click_1" FontFamily="Tw Cen MT Condensed"/>
         <TextBlock Grid.Column="0" Grid.Row="0" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="21" Width="85" Margin="31,17,31.2,16.4">Nazwa:</TextBlock>
         <TextBox x:Name="Name" HorizontalAlignment="Left" Height="23" Margin="4.8,16,0,15.4" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
-        <TextBox x:Name="Surname" HorizontalAlignment="Left" Height="23" Margin="4.8,15.6,0,15" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+        <TextBox x:Name="Type" HorizontalAlignment="Left" Height="23" Margin="4.8,15.6,0,15" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
         <TextBlock Grid.Column="0" Grid.Row="1" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="21" Width="85" Margin="31,16.6,31.2,16">Typ:</TextBlock>
-        <TextBox x:Name="Adress" HorizontalAlignment="Left" Height="23" Margin="4.8,16,0,15.4" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+        <TextBox x:Name="AmountInPack" HorizontalAlignment="Left" Height="23" Margin="4.8,16,0,15.4" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
         <TextBlock Grid.Column="0" Grid.Row="2" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="21" Width="106" Margin="31,17,10.2,16.4">Ilość w opakowaniu:</TextBlock>
         <TextBlock Grid.Column="0" Grid.Row="3"  FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Width="114" Margin="31,16,2.2,16.4">Ilość mleka na 1kg:</TextBlock>
-        <TextBox x:Name="NIP" HorizontalAlignment="Left" Height="23" Margin="4.8,15.6,0,15" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+        <TextBox x:Name="AmountMilk" HorizontalAlignment="Left" Height="23" Margin="4.8,15.6,0,15" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
 
     </Grid>
 </Window>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,8 +38,9 @@ namespace Mleczarnia
             this.Close();
         }
 
-        private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
+        void Window_Closing(object sender, CancelEventArgs e)
         {
+            FarmsList.SaveToFileFarms();
 
         }
     }

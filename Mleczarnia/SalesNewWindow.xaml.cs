@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,11 @@ namespace Mleczarnia
             SalesWindow wnd = new SalesWindow();
             wnd.Show();
             this.Close();
+        }
+        void Window_Closing(object sender, CancelEventArgs e)
+        {
+            FarmsList.SaveToFileFarms();
+
         }
 
     }

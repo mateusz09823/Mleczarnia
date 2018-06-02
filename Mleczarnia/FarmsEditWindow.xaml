@@ -25,9 +25,10 @@
         <TextBox x:Name="Name" HorizontalAlignment="Left" Height="23" Margin="5 5" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
         <TextBox x:Name="Surname" HorizontalAlignment="Left" Height="23" Margin="5 5" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
         <TextBlock Grid.Column="0" Grid.Row="1" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="21" Width="85">Nazwisko:</TextBlock>
-        <TextBox x:Name="Adress" HorizontalAlignment="Left" Height="23" Margin="5 5" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+        <TextBox x:Name="Address" HorizontalAlignment="Left" Height="23" Margin="5 5" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
         <TextBlock Grid.Column="0" Grid.Row="2" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="21" Width="85">Adres:</TextBlock>
         <TextBox x:Name="NIP" HorizontalAlignment="Left" Height="23" Margin="5 5" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
         <TextBlock Grid.Column="0" Grid.Row="3" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="21" Width="85">NIP:</TextBlock>
+        <Label Content="" Name="ID" HorizontalAlignment="Left" Margin="138,27.6,0,0" Grid.Row="1" VerticalAlignment="Top"/>
     </Grid>
 </Window>

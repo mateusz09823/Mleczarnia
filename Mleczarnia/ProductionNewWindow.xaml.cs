@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,11 @@ namespace Mleczarnia
             wnd.Show();
             this.Close();
             //dodaj
+        }
+        void Window_Closing(object sender, CancelEventArgs e)
+        {
+            FarmsList.SaveToFileFarms();
+
         }
     }
 }

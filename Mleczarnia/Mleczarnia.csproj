@@ -54,12 +54,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Farm.cs" />
     <Compile Include="FarmsAddWinow.xaml.cs">
       <DependentUpon>FarmsAddWinow.xaml</DependentUpon>
     </Compile>
     <Compile Include="FarmsEditWindow.xaml.cs">
       <DependentUpon>FarmsEditWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FarmsList.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="ProductionNewWindow.xaml.cs">
       <DependentUpon>ProductionNewWindow.xaml</DependentUpon>
     </Compile>
@@ -69,6 +72,7 @@
     <Compile Include="ProductsEditWindow.xaml.cs">
       <DependentUpon>ProductsEditWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProductsList.cs" />
     <Compile Include="SalesNewWindow.xaml.cs">
       <DependentUpon>SalesNewWindow.xaml</DependentUpon>
     </Compile>

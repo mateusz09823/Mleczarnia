@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace Mleczarnia
 {
@@ -22,6 +14,16 @@ namespace Mleczarnia
         public FarmsWindow()
         {
             InitializeComponent();
+            List<Row> Rows = new List<Row>();
+            for (int i = 0; i < FarmsList.GetSizeOfList(); i++)
+            {
+                string name = FarmsList.Get(i).GetName(); 
+                string surname = FarmsList.Get(i).GetSurname();
+                string address = FarmsList.Get(i).GetAddress();
+                int nip = FarmsList.Get(i).GetNip();
+                Rows.Add(new Row() { Name = name, Surname = surname, Address = address , Nip = nip });
+            }
+            lvFarms.ItemsSource = Rows;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -39,9 +41,35 @@ namespace Mleczarnia
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            FarmsEditWindow wnd = new FarmsEditWindow();
+            int id;
+            if (lvFarms.SelectedIndex == -1)
+            {
+                id = 0;
+            }
+            else id = lvFarms.SelectedIndex;
+            FarmsEditWindow wnd = new FarmsEditWindow(id);
             wnd.Show();
             this.Close();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            int id = lvFarms.SelectedIndex;
+            FarmsList.Delete(id);
+            FarmsWindow wnd = new FarmsWindow();
+            wnd.Show();
+            this.Close();
+        }
+        public class Row
+        {
+            public string Name { get; set; }
+
+            public string Surname { get; set; }
+    
+            public string Address { get; set; }
+
+            public int Nip { get; set; }
+
         }
     }
 }

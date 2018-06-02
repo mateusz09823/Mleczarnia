@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,6 +47,12 @@ namespace Mleczarnia
             StatisticsProductsWindow wnd = new StatisticsProductsWindow();
             wnd.Show();
             this.Close();
+        }
+
+        void Window_Closing(object sender, CancelEventArgs e)
+        {
+            FarmsList.SaveToFileFarms();
+
         }
     }
 }

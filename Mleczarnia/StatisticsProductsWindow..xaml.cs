@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,6 +46,12 @@ namespace Mleczarnia
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        void Window_Closing(object sender, CancelEventArgs e)
+        {
+            FarmsList.SaveToFileFarms();
 
         }
     }
