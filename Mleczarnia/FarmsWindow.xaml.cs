@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Documents;
 
 
@@ -11,24 +13,23 @@ namespace Mleczarnia
     /// </summary>
     public partial class FarmsWindow : Window
     {
+        MleczarniaDBEntities2 db = new MleczarniaDBEntities2();
+        List<Farm> Rows = new List<Farm>();
         public FarmsWindow()
         {
             InitializeComponent();
-            List<Row> Rows = new List<Row>();
-            for (int i = 0; i < FarmsList.GetSizeOfList(); i++)
+            var farms = db.Farm;
+            foreach (var item in farms)
             {
-                string name = FarmsList.Get(i).GetName(); 
-                string surname = FarmsList.Get(i).GetSurname();
-                string address = FarmsList.Get(i).GetAddress();
-                int nip = FarmsList.Get(i).GetNip();
-                Rows.Add(new Row() { Name = name, Surname = surname, Address = address , Nip = nip });
+               Rows.Add(item);
             }
-            lvFarms.ItemsSource = Rows;
+            farmsList.ItemsSource = Rows;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow wnd = new MainWindow();
             wnd.Show();
+            db.SaveChanges();
             this.Close();
         }
 
@@ -38,15 +39,15 @@ namespace Mleczarnia
             wnd.Show();
             this.Close();
         }
-
+    
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             int id;
-            if (lvFarms.SelectedIndex == -1)
+            if (farmsList.SelectedIndex == -1)
             {
                 id = 0;
             }
-            else id = lvFarms.SelectedIndex;
+            else id = farmsList.SelectedIndex;
             FarmsEditWindow wnd = new FarmsEditWindow(id);
             wnd.Show();
             this.Close();
@@ -54,22 +55,35 @@ namespace Mleczarnia
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            int id = lvFarms.SelectedIndex;
-            FarmsList.Delete(id);
-            FarmsWindow wnd = new FarmsWindow();
-            wnd.Show();
-            this.Close();
+           Rows.RemoveAt(farmsList.SelectedIndex);
+            db.Farm.Remove((Farm)farmsList.SelectedItem);
+            farmsList.Items.Refresh();
+            db.SaveChanges();
         }
-        public class Row
+       
+        private void AddPerson(object sender, RoutedEventArgs e)
         {
-            public string Name { get; set; }
-
-            public string Surname { get; set; }
-    
-            public string Address { get; set; }
-
-            public int Nip { get; set; }
-
+            Farm f = new Farm();
+            f.name = "Nowa";
+            f.surname = "Osoba";
+            db.Farm.Add(f);
+            db.SaveChanges();
+            Rows.Add(f);
+            farmsList.Items.Refresh();
         }
+
+        private void TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            farmsList.Items.Refresh();
+        }
+
+        private void TextBoxGotKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
+        {
+            TextBox box = (TextBox)sender;
+            box.SelectAll();
+            box.Focus();
+        }
+        
+       
     }
 }

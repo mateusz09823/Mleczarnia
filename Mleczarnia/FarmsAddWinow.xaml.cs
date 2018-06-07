@@ -25,7 +25,7 @@ namespace Mleczarnia
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            FarmsList.Add(new Farm(Name.Text.ToString(), Surname.Text.ToString(), Adress.Text.ToString(), int.Parse(Nip.Text.ToString())));
+          //  FarmsList.Add(new Farm(Name.Text.ToString(), Surname.Text.ToString(), Adress.Text.ToString(), int.Parse(Nip.Text.ToString())));
             FarmsWindow wnd = new FarmsWindow();
             wnd.Show();
             this.Close();

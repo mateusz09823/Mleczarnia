@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Mleczarnia
 {
-    class ProductsList
+    /*class ProductsList
     {
         public static List<Product> productsList = new List<Product>();
         private static FileStream MyStream;
@@ -77,5 +77,5 @@ namespace Mleczarnia
             }
 
         }
-    }
+    }*/
 }

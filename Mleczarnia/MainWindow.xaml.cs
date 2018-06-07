@@ -24,14 +24,17 @@ namespace Mleczarnia
         public MainWindow()
         {
             InitializeComponent();
-            FarmsList.LoadFromFileFarms();
-            ProductsList.LoadFromFileProducts();
-           // FarmsList.Add(new Farm("Mateusz", "Graczyk", "Rżaniec 72", 123456789));
-           // ProductsList.Add(new Product("Ser Chedar", "Krojony", "120g", 1,1));
+            MleczarniaDBEntities2 db = new MleczarniaDBEntities2();
+            // FarmsList.LoadFromFileFarms();
+            // ProductsList.LoadFromFileProducts();
+
+            // FarmsList.Add(new Farm("Mateusz", "Graczyk", "Rżaniec 72", 123456789));
+            // ProductsList.Add(new Product("Ser Chedar", "Krojony", "120g", 1,1));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {//gospodarstwa
+            
             FarmsWindow wnd = new FarmsWindow();
             wnd.Show();
             this.Close();
@@ -69,7 +72,7 @@ namespace Mleczarnia
         {//wyjście
             this.Close();
             FarmsList.SaveToFileFarms();
-            ProductsList.SaveToFileProducts();
+            //ProductsList.SaveToFileProducts();
         }
 
         private void Button_Click_6(object sender, RoutedEventArgs e)

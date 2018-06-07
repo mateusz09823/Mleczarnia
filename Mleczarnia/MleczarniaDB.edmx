@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MleczarniaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Delivery">
+          <Key>
+            <PropertyRef Name="deliveryID" />
+          </Key>
+          <Property Name="deliveryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="farmID" Type="int" Nullable="false" />
+          <Property Name="date" Type="date" />
+          <Property Name="milkAmount" Type="real" />
+        </EntityType>
+        <EntityType Name="Farm">
+          <Key>
+            <PropertyRef Name="farmID" />
+          </Key>
+          <Property Name="farmID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="surname" Type="nchar" MaxLength="10" />
+          <Property Name="nip" Type="bigint" />
+          <Property Name="amountOfMilk" Type="real" />
+          <Property Name="adress" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="productID" />
+          </Key>
+          <Property Name="productID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="type" Type="nvarchar(max)" />
+          <Property Name="amountInPack" Type="nvarchar(max)" />
+          <Property Name="made" Type="int" />
+          <Property Name="sold" Type="int" />
+        </EntityType>
+        <Association Name="FK_Delivery_Farm">
+          <End Role="Farm" Type="Self.Farm" Multiplicity="1" />
+          <End Role="Delivery" Type="Self.Delivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Farm">
+              <PropertyRef Name="farmID" />
+            </Principal>
+            <Dependent Role="Delivery">
+              <PropertyRef Name="farmID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MleczarniaDBModelStoreContainer">
+          <EntitySet Name="Delivery" EntityType="Self.Delivery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Farm" EntityType="Self.Farm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Delivery_Farm" Association="Self.FK_Delivery_Farm">
+            <End Role="Farm" EntitySet="Farm" />
+            <End Role="Delivery" EntitySet="Delivery" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MleczarniaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Farm">
+          <Key>
+            <PropertyRef Name="farmID" />
+          </Key>
+          <Property Name="farmID" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="surname" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="nip" Type="Int64" />
+          <Property Name="amountOfMilk" Type="Single" />
+          <Property Name="adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Delivery" Relationship="MleczarniaDBModel.FK_Delivery_Farm" FromRole="Farm" ToRole="Delivery" />
+        </EntityType>
+        <EntityContainer Name="MleczarniaDBEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Farm" EntityType="Self.Farm" />
+          <EntitySet Name="Delivery" EntityType="MleczarniaDBModel.Delivery" />
+          <EntitySet Name="Product" EntityType="MleczarniaDBModel.Product" />
+          <AssociationSet Name="FK_Delivery_Farm" Association="MleczarniaDBModel.FK_Delivery_Farm">
+            <End Role="Farm" EntitySet="Farm" />
+            <End Role="Delivery" EntitySet="Delivery" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Delivery">
+          <Key>
+            <PropertyRef Name="deliveryID" />
+          </Key>
+          <Property Name="deliveryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="farmID" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="milkAmount" Type="Single" />
+          <NavigationProperty Name="Farm" Relationship="MleczarniaDBModel.FK_Delivery_Farm" FromRole="Delivery" ToRole="Farm" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="productID" />
+          </Key>
+          <Property Name="productID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="amountInPack" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="made" Type="Int32" />
+          <Property Name="sold" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_Delivery_Farm">
+          <End Type="MleczarniaDBModel.Farm" Role="Farm" Multiplicity="1" />
+          <End Type="MleczarniaDBModel.Delivery" Role="Delivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Farm">
+              <PropertyRef Name="farmID" />
+            </Principal>
+            <Dependent Role="Delivery">
+              <PropertyRef Name="farmID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MleczarniaDBModelStoreContainer" CdmEntityContainer="MleczarniaDBEntities2">
+          <EntitySetMapping Name="Farm">
+            <EntityTypeMapping TypeName="MleczarniaDBModel.Farm">
+              <MappingFragment StoreEntitySet="Farm">
+                <ScalarProperty Name="adress" ColumnName="adress" />
+                <ScalarProperty Name="farmID" ColumnName="farmID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="nip" ColumnName="nip" />
+                <ScalarProperty Name="amountOfMilk" ColumnName="amountOfMilk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Delivery">
+            <EntityTypeMapping TypeName="MleczarniaDBModel.Delivery">
+              <MappingFragment StoreEntitySet="Delivery">
+                <ScalarProperty Name="milkAmount" ColumnName="milkAmount" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="farmID" ColumnName="farmID" />
+                <ScalarProperty Name="deliveryID" ColumnName="deliveryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="MleczarniaDBModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="sold" ColumnName="sold" />
+                <ScalarProperty Name="made" ColumnName="made" />
+                <ScalarProperty Name="amountInPack" ColumnName="amountInPack" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="productID" ColumnName="productID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

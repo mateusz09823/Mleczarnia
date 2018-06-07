@@ -41,10 +41,10 @@ namespace Mleczarnia
 
         public static void Set(int x, string Name, string Surname, string Address, int Nip)
         {
-                farmsList[x].SetName(Name);
-                farmsList[x].SetSurame(Surname);
-                farmsList[x].SetAddress(Address);
-                farmsList[x].SetNip(Nip);
+               // farmsList[x].SetName(Name);
+               // farmsList[x].SetSurame(Surname);
+               // farmsList[x].SetAddress(Address);
+               // farmsList[x].SetNip(Nip);
         }
 
         public static void Delete(int x)

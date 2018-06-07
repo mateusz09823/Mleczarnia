@@ -23,14 +23,14 @@ namespace Mleczarnia
         public FarmsEditWindow(int id)
         {
             InitializeComponent();
-            string name = FarmsList.Get(id).GetName(); 
-            string surname = FarmsList.Get(id).GetSurname();
-            string address = FarmsList.Get(id).GetAddress();
-            int nip = FarmsList.Get(id).GetNip();
-            Name.Text = name;
-            Surname.Text = surname;
-            Address.Text = address;
-            NIP.Text = nip.ToString();
+           // string name = FarmsList.Get(id).GetName(); 
+           // string surname = FarmsList.Get(id).GetSurname();
+           // string address = FarmsList.Get(id).GetAddress();
+           // int nip = FarmsList.Get(id).GetNip();
+         //   Name.Text = name;
+          //  Surname.Text = surname;
+          //  Address.Text = address;
+          //  NIP.Text = nip.ToString();
             Id = id;
         }
         private void Button_Click(object sender, RoutedEventArgs e)

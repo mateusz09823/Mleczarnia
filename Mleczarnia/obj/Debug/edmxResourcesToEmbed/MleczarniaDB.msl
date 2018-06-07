@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MleczarniaDBModelStoreContainer" CdmEntityContainer="MleczarniaDBEntities2">
+    <EntitySetMapping Name="Farm">
+      <EntityTypeMapping TypeName="MleczarniaDBModel.Farm">
+        <MappingFragment StoreEntitySet="Farm">
+          <ScalarProperty Name="adress" ColumnName="adress" />
+          <ScalarProperty Name="farmID" ColumnName="farmID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="nip" ColumnName="nip" />
+          <ScalarProperty Name="amountOfMilk" ColumnName="amountOfMilk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Delivery">
+      <EntityTypeMapping TypeName="MleczarniaDBModel.Delivery">
+        <MappingFragment StoreEntitySet="Delivery">
+          <ScalarProperty Name="milkAmount" ColumnName="milkAmount" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="farmID" ColumnName="farmID" />
+          <ScalarProperty Name="deliveryID" ColumnName="deliveryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="MleczarniaDBModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="sold" ColumnName="sold" />
+          <ScalarProperty Name="made" ColumnName="made" />
+          <ScalarProperty Name="amountInPack" ColumnName="amountInPack" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="productID" ColumnName="productID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

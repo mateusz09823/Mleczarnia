@@ -5,39 +5,68 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mleczarnia"
         mc:Ignorable="d"
-        Title="Gospodarstwa" Height="400" Width="600">
-    <Grid>
+        Title="Gospodarstwa" Height="356.381" Width="713.225">
+    <Window.Resources>
+        <DataTemplate x:Key="GroupTemplate">
+            <TextBlock Text="{Binding Path=Name}"
+                        FontWeight="Bold" Foreground="White" Background="ForestGreen"
+                        Margin="0,5,0,0" Padding="3"/>
+        </DataTemplate>
+    </Window.Resources>
+            <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="226*"></ColumnDefinition>
-            <ColumnDefinition Width="71*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <ToolBar Grid.ColumnSpan="2">
+            <Button Click="AddPerson" VerticalAlignment="Top">Dodaj</Button>
+          
+        </ToolBar>
         <Grid Margin="5,5,2,5.4" Grid.Row="1">
-            <ListView Name="lvFarms" Grid.ColumnSpan="4" Grid.RowSpan="4">
+            <ListView Name="farmsList" Grid.ColumnSpan="4" Grid.RowSpan="4">
+               
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Imie" Width="120" DisplayMemberBinding="{Binding Name}" />
-                        <GridViewColumn Header="Nazwisko" Width="120" DisplayMemberBinding="{Binding Surname}" />
-                        <GridViewColumn Header="Adres" Width="120" DisplayMemberBinding="{Binding Address}" />
-                        <GridViewColumn Header="NIP" Width="120" DisplayMemberBinding="{Binding Nip}" />
+                        <GridViewColumn Header="Imie" Width="120" DisplayMemberBinding="{Binding name}" />
+                        <GridViewColumn Header="Nazwisko" Width="120" DisplayMemberBinding="{Binding surname}" />
+                        <GridViewColumn Header="Adres" Width="120" DisplayMemberBinding="{Binding adress}" />
+                        <GridViewColumn Header="NIP" Width="120" DisplayMemberBinding="{Binding nip}" />
                     </GridView>
                 </ListView.View>
             </ListView>
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="1" Margin="11,5,4.6,5.4">
+        <Grid Grid.Row="1" Grid.Column="1" Margin="11,5,4.6,5.4"  DataContext="{Binding ElementName=farmsList, Path=SelectedItem}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="0.7*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Button Grid.Row="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" Click="Button_Click_1">Dodaj</Button>
-            <Button Grid.Row="1" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" Click="Button_Click_2">Edytuj</Button>
-            <Button Grid.Row="2" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" Click="Button_Click_3">Usuń</Button>
-            <Button Grid.Row="3" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" Click="Button_Click">Powrót</Button>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition> 
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Imię:</Label>
+            <TextBox Name="name" Grid.Row="0" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=name, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" TextChanged="TextChanged" GotKeyboardFocus="TextBoxGotKeyboardFocus"/>
+            <Label Grid.Row="1" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Nazwisko:</Label>
+            <TextBox Name="surbane"  Grid.Row="1" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=surname, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <Label Grid.Row="2" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Adres:</Label>
+            <TextBox Name="adress" Grid.Row="2" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=adress, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <Label Grid.Row="3" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">NIP:</Label>
+            <TextBox Name="nip" Grid.Row="3" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=nip, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <Grid Grid.ColumnSpan="2" Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button  Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" Click="Button_Click_3" Background="#FFCD7272">Usuń</Button>
+                <Button  Grid.Column="1" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" Click="Button_Click" Background="#FF78BACE">Powrót</Button>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

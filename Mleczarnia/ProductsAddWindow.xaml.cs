@@ -33,7 +33,7 @@ namespace Mleczarnia
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ProductsList.Add(new Product(Name.Text.ToString(), Type.Text.ToString(), AmountInPack.Text.ToString(), double.Parse(AmountMilk.Text.ToString())));
+           // ProductsList.Add(new Product(Name.Text.ToString(), Type.Text.ToString(), AmountInPack.Text.ToString(), double.Parse(AmountMilk.Text.ToString())));
             ProductsWindow wnd = new ProductsWindow();
             wnd.Show();
             this.Close();
