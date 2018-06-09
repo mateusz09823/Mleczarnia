@@ -25,8 +25,8 @@ namespace Mleczarnia
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Farm> Farm { get; set; }
         public virtual DbSet<Delivery> Delivery { get; set; }
+        public virtual DbSet<Farm> Farm { get; set; }
         public virtual DbSet<Product> Product { get; set; }
     }
 }

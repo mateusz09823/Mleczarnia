@@ -1,20 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="MleczarniaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Farm">
-    <Key>
-      <PropertyRef Name="farmID" />
-    </Key>
-    <Property Name="farmID" Type="Int32" Nullable="false" />
-    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="surname" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="nip" Type="Int64" />
-    <Property Name="amountOfMilk" Type="Single" />
-    <Property Name="adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Delivery" Relationship="MleczarniaDBModel.FK_Delivery_Farm" FromRole="Farm" ToRole="Delivery" />
-  </EntityType>
   <EntityContainer Name="MleczarniaDBEntities2" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Farm" EntityType="Self.Farm" />
     <EntitySet Name="Delivery" EntityType="MleczarniaDBModel.Delivery" />
+    <EntitySet Name="Farm" EntityType="MleczarniaDBModel.Farm" />
     <EntitySet Name="Product" EntityType="MleczarniaDBModel.Product" />
     <AssociationSet Name="FK_Delivery_Farm" Association="MleczarniaDBModel.FK_Delivery_Farm">
       <End Role="Farm" EntitySet="Farm" />
@@ -23,13 +11,25 @@
   </EntityContainer>
   <EntityType Name="Delivery">
     <Key>
-      <PropertyRef Name="deliveryID" />
+      <PropertyRef Name="deilveryID" />
     </Key>
-    <Property Name="deliveryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="deilveryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="farmID" Type="Int32" Nullable="false" />
     <Property Name="date" Type="DateTime" Precision="0" />
     <Property Name="milkAmount" Type="Single" />
     <NavigationProperty Name="Farm" Relationship="MleczarniaDBModel.FK_Delivery_Farm" FromRole="Delivery" ToRole="Farm" />
+  </EntityType>
+  <EntityType Name="Farm">
+    <Key>
+      <PropertyRef Name="farmID" />
+    </Key>
+    <Property Name="farmID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="surname" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="nip" Type="Int64" />
+    <Property Name="amountOfMilk" Type="Single" />
+    <Property Name="adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Delivery" Relationship="MleczarniaDBModel.FK_Delivery_Farm" FromRole="Farm" ToRole="Delivery" />
   </EntityType>
   <EntityType Name="Product">
     <Key>

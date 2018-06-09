@@ -5,9 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="82338b56e3044bcfb9c9f6add1d29d22" Name="Diagram1">
-        <EntityTypeShape EntityType="MleczarniaDBModel.Farm" Width="1.5" PointX="3.5" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MleczarniaDBModel.Delivery" Width="1.5" PointX="6.125" PointY="1.5" />
-        <EntityTypeShape EntityType="MleczarniaDBModel.Product" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MleczarniaDBModel.Delivery" Width="1.5" PointX="7.875" PointY="0.625" />
+        <EntityTypeShape EntityType="MleczarniaDBModel.Farm" Width="1.5" PointX="5.625" PointY="0.5" />
+        <EntityTypeShape EntityType="MleczarniaDBModel.Product" Width="1.5" PointX="3" PointY="0.625" />
         <AssociationConnector Association="MleczarniaDBModel.FK_Delivery_Farm" />
       </Diagram>
     </edmx:Diagrams>

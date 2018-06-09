@@ -30,6 +30,7 @@ namespace Mleczarnia
 
             // FarmsList.Add(new Farm("Mateusz", "Graczyk", "Rżaniec 72", 123456789));
             // ProductsList.Add(new Product("Ser Chedar", "Krojony", "120g", 1,1));
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
