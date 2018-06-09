@@ -14,7 +14,10 @@ namespace Mleczarnia
     
     public partial class Delivery
     {
-        public int deilveryID { get; set; }
+
+        public string farm { get; set; }
+
+        public int deliveryID { get; set; }
         public int farmID { get; set; }
         public Nullable<System.DateTime> date { get; set; }
         public Nullable<float> milkAmount { get; set; }

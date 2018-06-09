@@ -20,28 +20,26 @@ namespace Mleczarnia
     /// </summary>
     public partial class ProductsWindow : Window
     {
-         public ProductsWindow()
+        MleczarniaDBEntities2 db = new MleczarniaDBEntities2();
+        List<Product> Rows = new List<Product>();
+        public ProductsWindow()
          {
-             InitializeComponent();
-             List<Row> Rows = new List<Row>();
-            /* for (int i = 0; i < ProductsList.GetSizeOfList(); i++)
-             {
-                 string name = ProductsList.Get(i).GetName();
-                 string type = ProductsList.Get(i).GetType();
-                 string amountInPack = ProductsList.Get(i).GetAmountInPack();
-                 double amountMilk = ProductsList.Get(i).GetAmountMilk();
-                 int made = ProductsList.Get(i).GetMade();
-                 int sold = ProductsList.Get(i).GetSold();
-                 Rows.Add(new Row() { Name = name, Type = type, AmountInPack = amountInPack, AmountMilk = amountMilk, Made = made, Sold = sold });
-             }*/
-             lvProducts.ItemsSource = Rows;
-         }
+            
+            InitializeComponent();
+            var products = db.Product;
+            foreach (var item in products)
+            {
+                Rows.Add(item);
+            }
+            productsList.ItemsSource = Rows;
+        }
 
          private void Button_Click(object sender, RoutedEventArgs e)
          {
              MainWindow wnd = new MainWindow();
              wnd.Show();
-             this.Close();
+            db.SaveChanges();
+            this.Close();
          }
 
          private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -51,7 +49,7 @@ namespace Mleczarnia
              this.Close();
          }
 
-         private void Button_Click_2(object sender, RoutedEventArgs e)
+         /*private void Button_Click_2(object sender, RoutedEventArgs e)
          {
              int id;
              if (lvProducts.SelectedIndex == -1)
@@ -62,30 +60,35 @@ namespace Mleczarnia
              ProductsEditWindow wnd = new ProductsEditWindow(id);
              wnd.Show();
              this.Close();
-         }
+         }*/
          private void Button_Click_3(object sender, RoutedEventArgs e)
          {
-             int id = lvProducts.SelectedIndex;
-             //ProductsList.Delete(id);
-             ProductsWindow wnd = new ProductsWindow();
-             wnd.Show();
-             this.Close();
-         }
+            Rows.RemoveAt(productsList.SelectedIndex);
+            db.Product.Remove((Product)productsList.SelectedItem);
+            productsList.Items.Refresh();
+            db.SaveChanges();
+        }
 
-         public class Row
-         {
-             public string Name { get; set; }
+        private void AddProduct(object sender, RoutedEventArgs e)
+        {
+            Product f = new Product();
+            f.name = "Nowy";
+            db.Product.Add(f);
+            db.SaveChanges();
+            Rows.Add(f);
+            productsList.Items.Refresh();
+        }
 
-             public string Type { get; set; }
+        private void TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            productsList.Items.Refresh();
+        }
 
-             public string AmountInPack { get; set; }
-
-             public double AmountMilk { get; set; }
-
-             public int Made { get; set; }
-
-             public int Sold { get; set; }
-
-         }
+        private void TextBoxGotKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
+        {
+            TextBox box = (TextBox)sender;
+            box.SelectAll();
+            box.Focus();
+        }
     }
 }
