@@ -94,6 +94,9 @@
     <Compile Include="Product.cs">
       <DependentUpon>MleczarniaDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Production.cs">
+      <DependentUpon>MleczarniaDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="ProductionNewWindow.xaml.cs">
       <DependentUpon>ProductionNewWindow.xaml</DependentUpon>
     </Compile>

@@ -8,12 +8,17 @@
       <End Role="Farm" EntitySet="Farm" />
       <End Role="Delivery" EntitySet="Delivery" />
     </AssociationSet>
+    <EntitySet Name="Production" EntityType="MleczarniaDBModel.Production" />
+    <AssociationSet Name="FK_Production_Product" Association="MleczarniaDBModel.FK_Production_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Production" EntitySet="Production" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Delivery">
     <Key>
-      <PropertyRef Name="deilveryID" />
+      <PropertyRef Name="deliveryID" />
     </Key>
-    <Property Name="deilveryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="deliveryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="farmID" Type="Int32" Nullable="false" />
     <Property Name="date" Type="DateTime" Precision="0" />
     <Property Name="milkAmount" Type="Single" />
@@ -41,6 +46,7 @@
     <Property Name="amountInPack" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="made" Type="Int32" />
     <Property Name="sold" Type="Int32" />
+    <NavigationProperty Name="Production" Relationship="MleczarniaDBModel.FK_Production_Product" FromRole="Product" ToRole="Production" />
   </EntityType>
   <Association Name="FK_Delivery_Farm">
     <End Type="MleczarniaDBModel.Farm" Role="Farm" Multiplicity="1" />
@@ -51,6 +57,30 @@
       </Principal>
       <Dependent Role="Delivery">
         <PropertyRef Name="farmID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Production">
+    <Key>
+      <PropertyRef Name="productionID" />
+    </Key>
+    <Property Name="productionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="productID" Type="Int32" Nullable="false" />
+    <Property Name="amountInPack" Type="Single" />
+    <Property Name="amountOfMilk" Type="Single" />
+    <NavigationProperty Name="Product" Relationship="MleczarniaDBModel.FK_Production_Product" FromRole="Production" ToRole="Product" />
+  </EntityType>
+  <Association Name="FK_Production_Product">
+    <End Type="MleczarniaDBModel.Product" Role="Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MleczarniaDBModel.Production" Role="Production" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="productID" />
+      </Principal>
+      <Dependent Role="Production">
+        <PropertyRef Name="productID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -14,11 +14,20 @@ namespace Mleczarnia
     
     public partial class Product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            this.Production = new HashSet<Production>();
+        }
+    
         public int productID { get; set; }
         public string name { get; set; }
         public string type { get; set; }
         public string amountInPack { get; set; }
         public Nullable<int> made { get; set; }
         public Nullable<int> sold { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Production> Production { get; set; }
     }
 }

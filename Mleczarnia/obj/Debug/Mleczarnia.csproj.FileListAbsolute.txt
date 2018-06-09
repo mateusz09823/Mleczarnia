@@ -110,3 +110,4 @@ C:\Users\wojte\Mleczarnia\Mleczarnia\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\wojte\Mleczarnia\Mleczarnia\bin\Debug\EntityFramework.xml
 C:\Users\wojte\Mleczarnia\Mleczarnia\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\wojte\Mleczarnia\Mleczarnia\obj\Debug\Mleczarnia_Content.g.cs
+C:\Users\wojte\Mleczarnia\Mleczarnia\obj\Debug\GeneratedInternalTypeHelper.g.cs

@@ -3,52 +3,81 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Mleczarnia"
-        mc:Ignorable="d"
-        Title="Produkcja" Height="370.415" Width="600">
+         xmlns:local="clr-namespace:Mleczarnia"
+         xmlns:src="clr-namespace:Mleczarnia"
+            mc:Ignorable="d"
+        Title="Produkcja" Height="370.415" Width="700.8">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid Margin="5px" Grid.Row="1">
-            <ListBox FontFamily="Tw Cen MT Condensed" FontSize="16" >
-                <ListBoxItem>Ser gouda</ListBoxItem>
-                <ListBoxItem>Mleko</ListBoxItem>
-                <ListBoxItem>Ser salami</ListBoxItem>
-            </ListBox>
+        <Grid.Resources>
+            <src:Products x:Key="mProducts"/>
+        </Grid.Resources>
+        <ToolBar Grid.ColumnSpan="2">
+            <Button Click="AddDelivery" VerticalAlignment="Top">Dodaj</Button>
+        </ToolBar>
+        <Grid Margin="5,5,2,5.4" Grid.Row="1">
+            <ListView Name="productionList" Grid.ColumnSpan="4" Grid.RowSpan="4" ItemsSource="{StaticResource mProducts}"
+                      >
+
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Produkt" Width="210"  DisplayMemberBinding="{Binding Product.name}" />
+                        <GridViewColumn Header="Ilosc w opakowaniu" Width="120" DisplayMemberBinding="{Binding amountInPack}" />
+                        <GridViewColumn Header="Ilośc mleka" Width="120" DisplayMemberBinding="{Binding amountOfMilk}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="1" Margin="5px">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" MinWidth="198.4"></ColumnDefinition>
-                <ColumnDefinition Width="auto" MinWidth="89.6"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+        <Grid Grid.Row="1" Grid.Column="1" Margin="5px" DataContext="{Binding ElementName=productionList, Path=SelectedItem}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-
+                <RowDefinition Height="0.7*"></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Margin="18,13,55.4,13.2" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="21" Width="125">Nazwa produktu:</TextBlock>
-            <Label Grid.Row="0" Grid.Column="1" Margin="18.6,12,23.2,12.2" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" Width="51">Ser gouda</Label>
-            <TextBlock Grid.Row="1" Margin="18,12.8,86.4,13.4" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="21" Width="94">Typ:</TextBlock>
-            <Label Grid.Row="1" Grid.Column="1" Margin="22.6,12.8,28.2,12.4" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Width="42">Krojony</Label>
-            <TextBlock Grid.Row="2" Margin="18,13.6,47.4,13.6" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="133">Ilość w opakowaniu:</TextBlock>
-            <Label Grid.Row="2" Grid.Column="1" Margin="30.6,12.6,35.2,12.6" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Width="27">150g</Label>
-            <TextBlock Grid.Row="3" Margin="18,13.4,10.4,12.8" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="21" Width="170">Ilość mleka na jedno opakowanie:</TextBlock>
-            <Label Grid.Row="3" Grid.Column="1" Margin="30.6,12.4,28.2,12.8" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Width="34">0,5l</Label>
-            <TextBlock Grid.Row="4" Margin="18,13.2,51.4,13" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="21" Width="129">Ilość w magazynie:</TextBlock>
-            <Label Grid.Row="4" Grid.Column="1" Margin="26.6,12.2,32.2,12" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" Width="34">1025</Label>
-            <Button Grid.Row="5" Grid.ColumnSpan="2" Margin="5,8,8.2,7.2" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" VerticalAlignment="Center" Click="Button_Click_1" Height="32">Produkuj</Button>
-            <Button Grid.Row="6" Grid.ColumnSpan="2" Margin="5,7.8,8.2,8.2" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" VerticalAlignment="Center" Click="Button_Click" Height="32">Powrót</Button>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" ></ColumnDefinition>
+                <ColumnDefinition Width="*" ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Produkt:</Label>
+            <ComboBox Name="farmID" Grid.Row="0" Grid.Column="1" FontSize="18" FontFamily="Tw Cen MT Condensed" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                      ItemsSource="{StaticResource mProducts}" 
+                       
+                      SelectedValuePath="productID"
+                      SelectedValue="{Binding productID}"
+                      SelectedItem="sProduct"
+                      SelectionChanged="SelectionChanged" Height="62" Margin="0,0,-0.4,0" Grid.RowSpan="2" VerticalAlignment="Top">
+
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding name}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Label Grid.Row="1" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Ilosc w opakowaniu:</Label>
+            <TextBox Name="date"  Grid.Row="1" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=amountInPack, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <Label Grid.Row="2" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Ilość mleka:</Label>
+            <TextBox Name="milkAmount" Grid.Row="2" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=amountOfMilk, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+
+            <Grid Grid.ColumnSpan="2" Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button  Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" Click="Button_Click_3" Background="#FFCD7272">Usuń</Button>
+                <Button  Grid.Column="1" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" Click="Button_Click" Background="#FF78BACE">Powrót</Button>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

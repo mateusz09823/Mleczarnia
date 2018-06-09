@@ -2,9 +2,9 @@
 <Schema Namespace="MleczarniaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Delivery">
     <Key>
-      <PropertyRef Name="deilveryID" />
+      <PropertyRef Name="deliveryID" />
     </Key>
-    <Property Name="deilveryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="deliveryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="farmID" Type="int" Nullable="false" />
     <Property Name="date" Type="date" />
     <Property Name="milkAmount" Type="real" />
@@ -31,8 +31,19 @@
     <Property Name="made" Type="int" />
     <Property Name="sold" Type="int" />
   </EntityType>
+  <EntityType Name="Production">
+    <Key>
+      <PropertyRef Name="productionID" />
+    </Key>
+    <Property Name="productionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productID" Type="int" Nullable="false" />
+    <Property Name="amountInPack" Type="real" />
+    <Property Name="amountOfMilk" Type="real" />
+  </EntityType>
   <Association Name="FK_Delivery_Farm">
-    <End Role="Farm" Type="Self.Farm" Multiplicity="1" />
+    <End Role="Farm" Type="Self.Farm" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Delivery" Type="Self.Delivery" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Farm">
@@ -43,13 +54,32 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Production_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Production" Type="Self.Production" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="productID" />
+      </Principal>
+      <Dependent Role="Production">
+        <PropertyRef Name="productID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="MleczarniaDBModelStoreContainer">
     <EntitySet Name="Delivery" EntityType="Self.Delivery" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Farm" EntityType="Self.Farm" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Production" EntityType="Self.Production" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Delivery_Farm" Association="Self.FK_Delivery_Farm">
       <End Role="Farm" EntitySet="Farm" />
       <End Role="Delivery" EntitySet="Delivery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Production_Product" Association="Self.FK_Production_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Production" EntitySet="Production" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

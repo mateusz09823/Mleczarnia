@@ -28,5 +28,6 @@ namespace Mleczarnia
         public virtual DbSet<Delivery> Delivery { get; set; }
         public virtual DbSet<Farm> Farm { get; set; }
         public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<Production> Production { get; set; }
     }
 }

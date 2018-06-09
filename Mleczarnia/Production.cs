@@ -12,13 +12,13 @@ namespace Mleczarnia
     using System;
     using System.Collections.Generic;
     
-    public partial class Delivery
+    public partial class Production
     {
-        public int deliveryID { get; set; }
-        public int farmID { get; set; }
-        public Nullable<System.DateTime> date { get; set; }
-        public Nullable<float> milkAmount { get; set; }
-        public string farm { get; set; }
-        public virtual Farm Farm { get; set; }
+        public int productionID { get; set; }
+        public int productID { get; set; }
+        public Nullable<float> amountInPack { get; set; }
+        public Nullable<float> amountOfMilk { get; set; }
+        public string product { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

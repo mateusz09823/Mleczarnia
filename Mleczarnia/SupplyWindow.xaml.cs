@@ -78,7 +78,6 @@ namespace Mleczarnia
         private void AddDelivery(object sender, RoutedEventArgs e)
         {
             Delivery f = new Delivery();
-            f.deliveryID = 0;
             f.farmID = 1;
             f.date = DateTime.Now;
             db.Delivery.Add(f);
