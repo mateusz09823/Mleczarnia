@@ -38,35 +38,6 @@ namespace Mleczarnia
         }
 
 
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow wnd = new MainWindow();
-            wnd.Show();
-            db.SaveChanges();
-            this.Close();
-        }
-
-        
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            Rows.RemoveAt(salesList.SelectedIndex);
-            db.Sale.Remove((Sale)salesList.SelectedItem);
-            salesList.Items.Refresh();
-            db.SaveChanges();
-        }
-
-        private void AddSale(object sender, RoutedEventArgs e)
-        {
-            Sale f = new Sale();
-            f.amountToSell = 0;
-            f.price = 0;
-            db.Sale.Add(f);
-            db.SaveChanges();
-            Rows.Add(f);
-            salesList.Items.Refresh();
-        }
-
         private void TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             salesList.Items.Refresh();
@@ -85,7 +56,38 @@ namespace Mleczarnia
             box.Focus();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+
+        private void Delete_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+
+            if (salesList.SelectedIndex != -1)
+            {
+                e.CanExecute = true;
+            }
+            else
+            {
+                e.CanExecute = false;
+            }
+        }
+
+        private void Delete_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
+            Rows.RemoveAt(salesList.SelectedIndex);
+            db.Sale.Remove((Sale)salesList.SelectedItem);
+            salesList.Items.Refresh();
+            db.SaveChanges();
+        }
+
+        private void Return_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MainWindow wnd = new MainWindow();
+            wnd.Show();
+            db.SaveChanges();
+            this.Close();
+        }
+
+        private void Add_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             Sale f = new Sale();
             f.amountToSell = 0;
@@ -95,6 +97,7 @@ namespace Mleczarnia
             db.SaveChanges();
             Rows.Add(f);
             salesList.Items.Refresh();
+
         }
     }
 

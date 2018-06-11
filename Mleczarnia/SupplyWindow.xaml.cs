@@ -37,50 +37,6 @@ namespace Mleczarnia
             deliveryList.ItemsSource = Rows;
         }
 
-
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow wnd = new MainWindow();
-            wnd.Show();
-            db.SaveChanges();
-            this.Close();
-        }
-
-        
-
-        /*private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            int id;
-            if (deliveryList.SelectedIndex == -1)
-            {
-                id = 0;
-            }
-            else id = deliveryList.SelectedIndex;
-            SupplyNewWindow wnd = new SupplyNewWindow(id);
-            wnd.Show();
-            this.Close();
-        }*/
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            Rows.RemoveAt(deliveryList.SelectedIndex);
-            db.Delivery.Remove((Delivery)deliveryList.SelectedItem);
-            deliveryList.Items.Refresh();
-            db.SaveChanges();
-        }
-
-        private void AddDelivery(object sender, RoutedEventArgs e)
-        {
-            Delivery f = new Delivery();
-            f.farmID = 1;
-            f.date = DateTime.Now;
-            db.Delivery.Add(f);
-            db.SaveChanges();
-            Rows.Add(f);
-            deliveryList.Items.Refresh();
-        }
-
         private void TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             deliveryList.Items.Refresh();
@@ -97,6 +53,48 @@ namespace Mleczarnia
             TextBox box = (TextBox)sender;
             box.SelectAll();
             box.Focus();
+        }
+
+        private void Delete_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+
+            if (deliveryList.SelectedIndex != -1)
+            {
+                e.CanExecute = true;
+            }
+            else
+            {
+                e.CanExecute = false;
+            }
+        }
+
+        private void Delete_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Rows.RemoveAt(deliveryList.SelectedIndex);
+            db.Delivery.Remove((Delivery)deliveryList.SelectedItem);
+            deliveryList.Items.Refresh();
+            db.SaveChanges();
+
+        }
+
+        private void Return_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MainWindow wnd = new MainWindow();
+            wnd.Show();
+            db.SaveChanges();
+            this.Close();
+        }
+
+        private void Add_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Delivery f = new Delivery();
+            f.farmID = 1;
+            f.date = DateTime.Now;
+            db.Delivery.Add(f);
+            db.SaveChanges();
+            Rows.Add(f);
+            deliveryList.Items.Refresh();
+
         }
     }
 

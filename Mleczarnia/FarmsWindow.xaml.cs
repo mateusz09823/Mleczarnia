@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
-
+using System.Windows.Input;
 
 namespace Mleczarnia
 {
@@ -25,53 +25,7 @@ namespace Mleczarnia
             }
             farmsList.ItemsSource = Rows;
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow wnd = new MainWindow();
-            wnd.Show();
-            db.SaveChanges();
-            this.Close();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-           FarmsAddWinow wnd = new FarmsAddWinow();
-            wnd.Show();
-            this.Close();
-        }
-    
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            int id;
-            if (farmsList.SelectedIndex == -1)
-            {
-                id = 0;
-            }
-            else id = farmsList.SelectedIndex;
-            FarmsEditWindow wnd = new FarmsEditWindow(id);
-            wnd.Show();
-            this.Close();
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-           Rows.RemoveAt(farmsList.SelectedIndex);
-            db.Farm.Remove((Farm)farmsList.SelectedItem);
-            farmsList.Items.Refresh();
-            db.SaveChanges();
-        }
        
-        private void AddPerson(object sender, RoutedEventArgs e)
-        {
-            Farm f = new Farm();
-            f.name = "Nowa";
-            f.surname = "Osoba";
-            db.Farm.Add(f);
-            db.SaveChanges();
-            Rows.Add(f);
-            farmsList.Items.Refresh();
-        }
-
         private void TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             farmsList.Items.Refresh();
@@ -83,7 +37,46 @@ namespace Mleczarnia
             box.SelectAll();
             box.Focus();
         }
+
+
+        private void Delete_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            
+            if (farmsList.SelectedIndex != -1)
+            {
+                e.CanExecute = true;
+            }
+            else
+            {
+                e.CanExecute = false;
+            }
+        }
+
+        private void Delete_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Rows.RemoveAt(farmsList.SelectedIndex);
+            db.Farm.Remove((Farm)farmsList.SelectedItem);
+            farmsList.Items.Refresh();
+            db.SaveChanges();
+        }
         
-       
+        private void Return_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MainWindow wnd = new MainWindow();
+            wnd.Show();
+            db.SaveChanges();
+            this.Close();
+        }
+        
+        private void Add_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Farm f = new Farm();
+            f.name = "Nowa";
+            f.surname = "Osoba";
+            db.Farm.Add(f);
+            db.SaveChanges();
+            Rows.Add(f);
+            farmsList.Items.Refresh();
+        }
     }
 }

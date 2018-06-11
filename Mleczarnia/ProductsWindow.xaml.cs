@@ -34,34 +34,7 @@ namespace Mleczarnia
             productsList.ItemsSource = Rows;
         }
 
-         private void Button_Click(object sender, RoutedEventArgs e)
-         {
-             MainWindow wnd = new MainWindow();
-             wnd.Show();
-            db.SaveChanges();
-            this.Close();
-         }
-
-        
-
          
-         private void Button_Click_3(object sender, RoutedEventArgs e)
-         {
-            Rows.RemoveAt(productsList.SelectedIndex);
-            db.Product.Remove((Product)productsList.SelectedItem);
-            productsList.Items.Refresh();
-            db.SaveChanges();
-        }
-
-        private void AddProduct(object sender, RoutedEventArgs e)
-        {
-            Product f = new Product();
-            f.name = "Nowy";
-            db.Product.Add(f);
-            db.SaveChanges();
-            Rows.Add(f);
-            productsList.Items.Refresh();
-        }
 
         private void TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
@@ -73,6 +46,47 @@ namespace Mleczarnia
             TextBox box = (TextBox)sender;
             box.SelectAll();
             box.Focus();
+        }
+
+        private void Delete_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+
+            if (productsList.SelectedIndex != -1)
+            {
+                e.CanExecute = true;
+            }
+            else
+            {
+                e.CanExecute = false;
+            }
+        }
+
+        private void Delete_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
+            Rows.RemoveAt(productsList.SelectedIndex);
+            db.Product.Remove((Product)productsList.SelectedItem);
+            productsList.Items.Refresh();
+            db.SaveChanges();
+        }
+
+        private void Return_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MainWindow wnd = new MainWindow();
+            wnd.Show();
+            db.SaveChanges();
+            this.Close();
+        }
+
+        private void Add_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
+            Product f = new Product();
+            f.name = "Nowy";
+            db.Product.Add(f);
+            db.SaveChanges();
+            Rows.Add(f);
+            productsList.Items.Refresh();
         }
     }
 }
