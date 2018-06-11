@@ -30,7 +30,7 @@
         </Grid.Resources>
         <Grid Margin="5,5,2,5.4" Grid.Row="1">
             <ListView Name="salesList" Grid.ColumnSpan="4" Grid.RowSpan="4" Background="#FFCBFFC9" ItemsSource="{StaticResource mProduction}" 
-                      >
+                    SelectionChanged="SelectionChanged"  >
 
                 <ListView.View>
                     <GridView>

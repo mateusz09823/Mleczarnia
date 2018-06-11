@@ -90,11 +90,8 @@ C:\Users\wojte\Mleczarnia\Mleczarnia\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\wojte\Mleczarnia\Mleczarnia\obj\Debug\Mleczarnia_Content.g.cs
 C:\Users\wojte\Mleczarnia\Mleczarnia\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Xan\Mleczarnia\Mleczarnia\obj\Debug\Mleczarnia.csprojAssemblyReference.cache
-C:\Users\Xan\Mleczarnia\Mleczarnia\obj\Debug\FarmsAddWinow.g.cs
-C:\Users\Xan\Mleczarnia\Mleczarnia\obj\Debug\FarmsEditWindow.g.cs
 C:\Users\Xan\Mleczarnia\Mleczarnia\obj\Debug\FarmsWindow.g.cs
 C:\Users\Xan\Mleczarnia\Mleczarnia\obj\Debug\MainWindow.g.cs
-C:\Users\Xan\Mleczarnia\Mleczarnia\obj\Debug\ProductionNewWindow.g.cs
 C:\Users\Xan\Mleczarnia\Mleczarnia\obj\Debug\ProductionWindow.g.cs
 C:\Users\Xan\Mleczarnia\Mleczarnia\obj\Debug\ProductsWindow.g.cs
 C:\Users\Xan\Mleczarnia\Mleczarnia\obj\Debug\SalesWindow.g.cs
@@ -115,11 +112,8 @@ C:\Users\Xan\Mleczarnia\Mleczarnia\bin\Debug\EntityFramework.dll
 C:\Users\Xan\Mleczarnia\Mleczarnia\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Xan\Mleczarnia\Mleczarnia\bin\Debug\EntityFramework.xml
 C:\Users\Xan\Mleczarnia\Mleczarnia\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Xan\Mleczarnia\Mleczarnia\obj\Debug\FarmsAddWinow.baml
-C:\Users\Xan\Mleczarnia\Mleczarnia\obj\Debug\FarmsEditWindow.baml
 C:\Users\Xan\Mleczarnia\Mleczarnia\obj\Debug\FarmsWindow.baml
 C:\Users\Xan\Mleczarnia\Mleczarnia\obj\Debug\MainWindow.baml
-C:\Users\Xan\Mleczarnia\Mleczarnia\obj\Debug\ProductionNewWindow.baml
 C:\Users\Xan\Mleczarnia\Mleczarnia\obj\Debug\ProductionWindow.baml
 C:\Users\Xan\Mleczarnia\Mleczarnia\obj\Debug\ProductsWindow.baml
 C:\Users\Xan\Mleczarnia\Mleczarnia\obj\Debug\SalesWindow.baml
@@ -138,3 +132,4 @@ C:\Users\mateu\Documents\Mleczarnia\Mleczarnia\bin\Debug\EntityFramework.SqlServ
 C:\Users\mateu\Documents\Mleczarnia\Mleczarnia\obj\Debug\Mleczarnia_Content.g.cs
 C:\Users\mateu\Documents\Mleczarnia\Mleczarnia\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\mateu\Documents\Mleczarnia\Mleczarnia\obj\Debug\App.baml
+C:\Users\Xan\Mleczarnia\Mleczarnia\obj\Debug\App.baml

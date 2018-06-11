@@ -70,7 +70,6 @@
     <Compile Include="Farm.cs">
       <DependentUpon>MleczarniaDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="FarmsList.cs" />
     <Compile Include="MleczarniaDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -92,7 +91,6 @@
     <Compile Include="Production.cs">
       <DependentUpon>MleczarniaDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="ProductsList.cs" />
     <Compile Include="Sale.cs">
       <DependentUpon>MleczarniaDB.tt</DependentUpon>
     </Compile>

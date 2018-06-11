@@ -18,6 +18,10 @@ namespace Mleczarnia
         public FarmsWindow()
         {
             InitializeComponent();
+            name.Focusable = false;
+            surname.Focusable = false;
+            adress.Focusable = false;
+            nip.Focusable = false;
             var farms = db.Farm;
             foreach (var item in farms)
             {
@@ -77,6 +81,17 @@ namespace Mleczarnia
             db.SaveChanges();
             Rows.Add(f);
             farmsList.Items.Refresh();
+        }
+
+        private void SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(name.Focusable == false)
+            {
+                name.Focusable = true;
+                surname.Focusable = true;
+                adress.Focusable = true;
+                nip.Focusable = true;
+            }
         }
     }
 }

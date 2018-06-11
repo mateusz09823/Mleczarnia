@@ -48,11 +48,6 @@ namespace Mleczarnia
             wnd.Show();
             this.Close();
         }
-
-        void Window_Closing(object sender, CancelEventArgs e)
-        {
-            FarmsList.SaveToFileFarms();
-
-        }
+        
     }
 }

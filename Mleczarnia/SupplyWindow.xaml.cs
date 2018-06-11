@@ -27,6 +27,9 @@ namespace Mleczarnia
         public SupplyWindow()
         {
             InitializeComponent();
+            farmID.IsEditable = false;
+            date.Focusable = false;
+            milkAmount.Focusable = false;
             var delivery = db.Delivery;
             var farms = db.Farm;
             foreach (var item in delivery)
@@ -44,8 +47,12 @@ namespace Mleczarnia
 
         private void SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            db.SaveChanges();
-            deliveryList.Items.Refresh();
+            if (farmID.Focusable == false)
+            {
+                farmID.Focusable = true;
+                date.Focusable = true;
+                milkAmount.Focusable = true;
+            }
         }
 
         private void TextBoxGotKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
@@ -95,6 +102,12 @@ namespace Mleczarnia
             Rows.Add(f);
             deliveryList.Items.Refresh();
 
+        }
+
+        private void Combobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            db.SaveChanges();
+            deliveryList.Items.Refresh();
         }
     }
 

@@ -40,7 +40,7 @@
 
         </ToolBar>
         <Grid Margin="5,5,2,5.4" Grid.Row="1">
-            <ListView  Background="#FFCBFFC9" Name="farmsList" Grid.ColumnSpan="4" Grid.RowSpan="4">
+            <ListView  Background="#FFCBFFC9" Name="farmsList" SelectionChanged="SelectionChanged" Grid.ColumnSpan="4" Grid.RowSpan="4">
                
                 <ListView.View>
                     <GridView>
@@ -67,7 +67,7 @@
             <Label Grid.Row="0" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Imię:</Label>
             <TextBox Name="name" Grid.Row="0" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=name, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" TextChanged="TextChanged" GotKeyboardFocus="TextBoxGotKeyboardFocus"/>
             <Label Grid.Row="1" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Nazwisko:</Label>
-            <TextBox Name="surbane"  Grid.Row="1" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=surname, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <TextBox Name="surname"  Grid.Row="1" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=surname, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
             <Label Grid.Row="2" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Adres:</Label>
             <TextBox Name="adress" Grid.Row="2" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=adress, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
             <Label Grid.Row="3" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">NIP:</Label>
