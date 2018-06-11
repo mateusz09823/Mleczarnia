@@ -58,5 +58,22 @@ namespace Mleczarnia
             wnd.Show();
             this.Close();
         }
+
+        private void Print_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            //Kiedy moze drukowac ,jak nie potrzebujesz usun metode i w 11 lini w xaml "CanExecute="Print_CanExecute""
+        }
+
+        private void Print_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            // drukowanie czynnosc
+        }
+
+        private void Return_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MainWindow wnd = new MainWindow();
+            wnd.Show();
+            this.Close();
+        }
     }
 }

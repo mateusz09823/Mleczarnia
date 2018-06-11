@@ -84,17 +84,15 @@ namespace Mleczarnia
             this.Close();
         }
 
-        private void Button_Click_5(object sender, RoutedEventArgs e)
-        {//wyjście
-            this.Close();
-            //FarmsList.SaveToFileFarms();
-            //ProductsList.SaveToFileProducts();
-        }
-
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {//dostawy
             SupplyWindow wnd = new SupplyWindow();
             wnd.Show();
+            this.Close();
+        }
+
+        private void Return_Executed(object sender, ExecutedRoutedEventArgs e)
+        {//wyjście
             this.Close();
         }
     }
