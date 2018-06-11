@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mleczarnia"
         mc:Ignorable="d"
-        Title="StatisticWindow" Height="538.713" Width="494.266" HorizontalAlignment="Center" VerticalAlignment="Center">
+        Title="StatisticWindow" Height="540" Width="500" MinHeight="540" MinWidth="500" Background="#FF83FF80" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">
     <Grid Margin="5px">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -35,11 +35,22 @@
         <Label Name="sales" Grid.Row="4" Grid.Column="1" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Center" ></Label>
         <Label Grid.Row="5" Grid.Column="0" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center">Obrót:</Label>
         <Label Name="cash" Grid.Row="5" Grid.Column="1" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Center" ></Label>
-        <Label Grid.Row="6" Grid.ColumnSpan="2" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Zajętość zbiornika</Label>
-        <ProgressBar  Name="tankProgressBar" Grid.Row="7"  Grid.ColumnSpan="2" Margin="5px"></ProgressBar>
-        <Button Grid.Row="9" Grid.Column="0" Margin="5px" Padding="2px" FontSize="36" FontFamily="Tw Cen MT Condensed">Drukuj</Button>
-        <Label Name="tankFilling"  Grid.Row="8" Grid.Column="0" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
-        <Label Name="maximumCapacity" Grid.Row="8" Grid.Column="1" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Center" ></Label>
-        <Button Grid.Row="9" Grid.Column="1" Margin="5px" Padding="2px" FontSize="36" FontFamily="Tw Cen MT Condensed" Click="BackButtonCLick">Powrót</Button>
+        <Label Grid.Row="6" Grid.ColumnSpan="2" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Wykorzystanie zbiornika</Label>
+        <ProgressBar  Name="tankProgressBar" Grid.Row="7"  Grid.ColumnSpan="2" Background="#FFCBFFC9" Margin="5px"></ProgressBar>
+        <Button Grid.Row="9" Grid.Column="0" Margin="5px" Padding="2px" FontSize="36" FontFamily="Tw Cen MT Condensed" Background="#FFCBFFC9" Style="{StaticResource RoundedButtonStyle}">
+            
+            <StackPanel Orientation="Horizontal">
+                <Image Height="50" Source="appbar.page.file.pdf.tag.png" Stretch="Fill" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center">Eksprotuj</TextBlock>
+            </StackPanel>
+        </Button>
+        <Label Name="tankFilling"  Grid.Row="8" Grid.Column="0" FontFamily="Tw Cen MT Condensed" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+        <Label Name="maximumCapacity" Grid.Row="8" Grid.Column="1" FontFamily="Tw Cen MT Condensed" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" ></Label>
+        <Button Grid.Row="9" Grid.Column="1" Margin="5px" Padding="2px" FontSize="36" FontFamily="Tw Cen MT Condensed" Click="BackButtonCLick" Background="#FFCBFFC9" Style="{StaticResource RoundedButtonStyle}">
+            <StackPanel Orientation="Horizontal">
+                <Image Height="50" Source="appbar.arrow.left.png" Stretch="Fill" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" >Powrót</TextBlock>
+            </StackPanel>
+        </Button>
     </Grid>
 </Window>

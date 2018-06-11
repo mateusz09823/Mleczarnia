@@ -44,10 +44,6 @@ C:\Users\mateu\Documents\Mleczarnia\Mleczarnia\obj\Debug\SalesWindow.g.cs
 C:\Users\mateu\Documents\Mleczarnia\Mleczarnia\obj\Debug\SalesWindow.baml
 C:\Users\mateu\Documents\Mleczarnia\Mleczarnia\obj\Debug\SupplyWindow.g.cs
 C:\Users\mateu\Documents\Mleczarnia\Mleczarnia\obj\Debug\SupplyWindow.baml
-C:\Users\mateu\Documents\Mleczarnia\Mleczarnia\obj\Debug\StatisticsFarmsWindow.g.cs
-C:\Users\mateu\Documents\Mleczarnia\Mleczarnia\obj\Debug\StatisticsProductsWindow..g.cs
-C:\Users\mateu\Documents\Mleczarnia\Mleczarnia\obj\Debug\StatisticsFarmsWindow.baml
-C:\Users\mateu\Documents\Mleczarnia\Mleczarnia\obj\Debug\StatisticsProductsWindow..baml
 C:\Users\wojte\Mleczarnia\Mleczarnia\bin\Debug\Mleczarnia.exe.config
 C:\Users\wojte\Mleczarnia\Mleczarnia\bin\Debug\Mleczarnia.exe
 C:\Users\wojte\Mleczarnia\Mleczarnia\bin\Debug\Mleczarnia.pdb
@@ -126,3 +122,5 @@ C:\Users\Xan\Mleczarnia\Mleczarnia\obj\Debug\App.baml
 C:\Users\wojte\Mleczarnia\Mleczarnia\obj\Debug\App.baml
 C:\Users\wojte\Mleczarnia\Mleczarnia\obj\Debug\StatisticWindow.g.cs
 C:\Users\wojte\Mleczarnia\Mleczarnia\obj\Debug\StatisticWindow.baml
+C:\Users\mateu\Documents\Mleczarnia\Mleczarnia\obj\Debug\StatisticWindow.g.cs
+C:\Users\mateu\Documents\Mleczarnia\Mleczarnia\obj\Debug\StatisticWindow.baml

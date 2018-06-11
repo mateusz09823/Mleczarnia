@@ -25,7 +25,7 @@
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Gospodarze</TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Row="1" Grid.Column="1" Margin="5px" Padding="2px" Background="#FFCBFFC9" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_6" Style="{StaticResource RoundedButtonStyle}" x:Name="dostawy">
+        <Button Grid.Row="1" Grid.Column="1" Margin="5px" Padding="2px"  FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_6" Background="#FFCBFFC9" Style="{StaticResource RoundedButtonStyle}" x:Name="dostawy">
             <StackPanel Orientation="Horizontal">
                 <Image Height="76" Source="appbar.truck.png" Stretch="Fill" Width="76"/>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Dostawy</TextBlock>
