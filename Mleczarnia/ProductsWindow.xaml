@@ -29,7 +29,12 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <ToolBar Grid.ColumnSpan="2">
-            <Button Command="cmds:Commands.Add" VerticalAlignment="Top">Dodaj</Button>
+            <Button Command="cmds:Commands.Add" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="20" Source="appbar.add.png" Stretch="Fill" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">Dodaj</TextBlock>
+                </StackPanel>
+            </Button>
 
         </ToolBar>
         <Grid Margin="5,5,2,5.4" Grid.Row="1">
@@ -74,8 +79,18 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button  Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" Command="cmds:Commands.Delete" Background="#FFCD7272">Usuń</Button>
-                <Button  Grid.Column="1" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" Command="cmds:Commands.Return" Background="#FF78BACE">Powrót</Button>
+                <Button  Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" Command="cmds:Commands.Delete" Background="#FFCD7272">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="30" Source="appbar.delete.png" Stretch="Fill" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="19">Usuń</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button  Grid.Column="1" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" Command="cmds:Commands.Return" Background="#FF78BACE">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="30" Source="appbar.arrow.left.png" Stretch="Fill" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="19">Powrót</TextBlock>
+                    </StackPanel>
+                </Button>
             </Grid>
         </Grid>
     </Grid>

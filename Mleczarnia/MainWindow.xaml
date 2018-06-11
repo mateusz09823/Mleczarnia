@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Mleczarnia"
         mc:Ignorable="d"
         Title="Menu" Height="350" Width="525" MinHeight="450" MinWidth="400" Background="#FF6B9BA2" Foreground="Black">
-    <Grid Margin="5px">
+      <Grid Margin="5px">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -19,13 +19,54 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.ColumnSpan="2" FontSize="48" FontWeight="Bold" FontFamily="Tw Cen MT Condensed" HorizontalAlignment="Center" VerticalAlignment="Center">System zarządzania mleczarnią</TextBlock>
-        <Button Grid.Row="1" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click">Gospodarstwa</Button>
-        <Button Grid.Row="1" Grid.Column="1" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_6">Dostawy</Button>
-        <Button Grid.Row="2" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_1">Produkty</Button>
-        <Button Grid.Row="2" Grid.Column="1" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_2">Produkcja</Button>
-        <Button Grid.Row="3" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_3">Sprzedaż</Button>
-        <Button Grid.Row="3" Grid.Column="1" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_4">Statystyki</Button>
-        <Button Grid.Row="4" Grid.ColumnSpan="2" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_5">Wyjście</Button>
+        <Button Grid.Row="1" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click" x:Name="gospodarstwa">
+            <StackPanel Orientation="Horizontal">
+                <Image Height="76" Source="appbar.group.png" Stretch="Fill" Width="76"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Gospodarze</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Grid.Row="1" Grid.Column="1" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_6" x:Name="dostawy">
+            <StackPanel Orientation="Horizontal">
+                <Image Height="76" Source="appbar.truck.png" Stretch="Fill" Width="76"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Dostawy</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_1" x:Name="produkty">
+            
+            <StackPanel Orientation="Horizontal">
+                <Image Height="76" Source="appbar.food.png" Stretch="Fill" Width="76"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Produkty</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="1" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_2" x:Name="produkcja">
+            
+            <StackPanel Orientation="Horizontal">
+                <Image Height="65" Source="appbar.cogs.png" Stretch="Fill" Width="65"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Produkcja</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Grid.Row="3" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_3" x:Name="sprzedaz">
+            
+            <StackPanel Orientation="Horizontal">
+                <Image Height="76" Source="appbar.billing.png" Stretch="Fill" Width="76"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Sprzedaż</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Grid.Row="3" Grid.Column="1" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_4" x:Name="statystyki">
+           
+            <StackPanel Orientation="Horizontal">
+                <Image Height="76" Source="appbar.clipboard.variant.edit.png" Stretch="Fill" Width="76"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Statystyki</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Grid.Row="4" Grid.ColumnSpan="2" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_5" x:Name="wyjscie" >
+            <StackPanel Orientation="Horizontal">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Wyjście</TextBlock>
+                <Image Height="76" Source="exit.png" Stretch="Fill" Width="76"/>
+            </StackPanel>
+            
+
+        </Button>
 
     </Grid>
 </Window>

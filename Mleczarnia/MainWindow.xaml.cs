@@ -10,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -30,6 +31,21 @@ namespace Mleczarnia
 
             // FarmsList.Add(new Farm("Mateusz", "Graczyk", "Rżaniec 72", 123456789));
             // ProductsList.Add(new Product("Ser Chedar", "Krojony", "120g", 1,1));
+            DoubleAnimation anim = new DoubleAnimation();
+            anim.From = 50;
+            anim.To = 240;
+            anim.FillBehavior = FillBehavior.Stop;
+            gospodarstwa.BeginAnimation(WidthProperty, anim);
+            dostawy.BeginAnimation(WidthProperty, anim);
+            produkty.BeginAnimation(WidthProperty, anim);
+            produkcja.BeginAnimation(WidthProperty, anim);
+            statystyki.BeginAnimation(WidthProperty, anim);
+            sprzedaz.BeginAnimation(WidthProperty, anim);
+            DoubleAnimation wanim = new DoubleAnimation();
+            wanim.From = 50;
+            wanim.To = 490;
+            wanim.FillBehavior = FillBehavior.Stop;
+            wyjscie.BeginAnimation(WidthProperty, wanim);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
