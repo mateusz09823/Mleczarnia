@@ -207,6 +207,8 @@
     <Resource Include="appbar.arrow.left.png" />
     <Resource Include="appbar.add.png" />
     <Resource Include="appbar.currency.dollar.png" />
+    <Resource Include="cow.jpg" />
+    <Resource Include="cow.png" />
     <Content Include="MleczarniaDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MleczarniaDB.edmx</DependentUpon>

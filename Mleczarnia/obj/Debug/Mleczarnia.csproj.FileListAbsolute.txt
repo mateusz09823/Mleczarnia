@@ -137,3 +137,4 @@ C:\Users\mateu\Documents\Mleczarnia\Mleczarnia\bin\Debug\EntityFramework.xml
 C:\Users\mateu\Documents\Mleczarnia\Mleczarnia\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\mateu\Documents\Mleczarnia\Mleczarnia\obj\Debug\Mleczarnia_Content.g.cs
 C:\Users\mateu\Documents\Mleczarnia\Mleczarnia\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\mateu\Documents\Mleczarnia\Mleczarnia\obj\Debug\App.baml

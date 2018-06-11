@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Mleczarnia"
         xmlns:cmds="clr-namespace:Mleczarnia"
         mc:Ignorable="d"
-        Title="Produkty" Height="356.381" Width="713.225">
+        Title="Produkty" Height="400" Width="800" MinHeight="400" MinWidth="800" Background="#FF83FF80">
     <Window.CommandBindings>
         <CommandBinding Command="cmds:Commands.Delete" CanExecute="Delete_CanExecute" Executed="Delete_Executed"/>
         <CommandBinding Command="cmds:Commands.Return" Executed="Return_Executed"/>
@@ -25,10 +25,10 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="438*"></ColumnDefinition>
+            <ColumnDefinition Width="269*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ToolBar Grid.ColumnSpan="2">
+        <ToolBar Background="#FFCBFFC9" Grid.ColumnSpan="2" Margin="0,0,0.2,0.4">
             <Button Command="cmds:Commands.Add" VerticalAlignment="Top">
                 <StackPanel Orientation="Horizontal">
                     <Image Height="20" Source="appbar.add.png" Stretch="Fill" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -37,8 +37,8 @@
             </Button>
 
         </ToolBar>
-        <Grid Margin="5,5,2,5.4" Grid.Row="1">
-            <ListView Name="productsList" Grid.ColumnSpan="4" Grid.RowSpan="4">
+        <Grid Margin="5,4.6,4.4,5" Grid.Row="1">
+            <ListView Name="productsList" Grid.ColumnSpan="4" Grid.RowSpan="4"  Background="#FFCBFFC9">
 
                 <ListView.View>
                     <GridView>
@@ -51,7 +51,7 @@
                 </ListView.View>
             </ListView>
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="1" Margin="11,5,4.6,5.4"  DataContext="{Binding ElementName=productsList, Path=SelectedItem}">
+        <Grid Grid.Row="1" Grid.Column="1" Margin="8.6,4.6,4.2,5"  DataContext="{Binding ElementName=productsList, Path=SelectedItem}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
@@ -79,13 +79,13 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button  Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" Command="cmds:Commands.Delete" Background="#FFCD7272">
+                <Button  Style="{StaticResource RoundedButtonStyle}"  Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" Command="cmds:Commands.Delete" Background="#FFCD7272">
                     <StackPanel Orientation="Horizontal">
                         <Image Height="30" Source="appbar.delete.png" Stretch="Fill" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="19">Usuń</TextBlock>
                     </StackPanel>
                 </Button>
-                <Button  Grid.Column="1" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" Command="cmds:Commands.Return" Background="#FF78BACE">
+                <Button  Style="{StaticResource RoundedButtonStyle}" Grid.Column="1" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" Command="cmds:Commands.Return" Background="#FF78BACE">
                     <StackPanel Orientation="Horizontal">
                         <Image Height="30" Source="appbar.arrow.left.png" Stretch="Fill" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="19">Powrót</TextBlock>

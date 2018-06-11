@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mleczarnia"
         mc:Ignorable="d"
-        Title="Menu" Height="350" Width="525" MinHeight="450" MinWidth="400" Background="#FF6B9BA2" Foreground="Black">
+        Title="Menu" Height="500" Width="550" MinHeight="450" MinWidth="470" Background="#FF83FF80" Foreground="Black">
       <Grid Margin="5px">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -18,48 +18,48 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.ColumnSpan="2" FontSize="48" FontWeight="Bold" FontFamily="Tw Cen MT Condensed" HorizontalAlignment="Center" VerticalAlignment="Center">System zarządzania mleczarnią</TextBlock>
-        <Button Grid.Row="1" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click" x:Name="gospodarstwa">
+        <TextBlock Grid.ColumnSpan="2" FontSize="48" FontWeight="Bold" FontFamily="Tw Cen MT Condensed" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="System zarządzania mleczarnią"/></TextBlock>
+        <Button Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Background="#FFCBFFC9" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click" x:Name="gospodarstwa">
             <StackPanel Orientation="Horizontal">
                 <Image Height="76" Source="appbar.group.png" Stretch="Fill" Width="76"/>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Gospodarze</TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Row="1" Grid.Column="1" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_6" x:Name="dostawy">
+        <Button Grid.Row="1" Grid.Column="1" Margin="5px" Padding="2px" Background="#FFCBFFC9" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_6" Style="{StaticResource RoundedButtonStyle}" x:Name="dostawy">
             <StackPanel Orientation="Horizontal">
                 <Image Height="76" Source="appbar.truck.png" Stretch="Fill" Width="76"/>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Dostawy</TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Row="2" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_1" x:Name="produkty">
+        <Button Grid.Row="2" Grid.Column="0" Margin="5px" Padding="2px" Background="#FFCBFFC9" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_1" Style="{StaticResource RoundedButtonStyle}" x:Name="produkty">
             
             <StackPanel Orientation="Horizontal">
                 <Image Height="76" Source="appbar.food.png" Stretch="Fill" Width="76"/>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Produkty</TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Row="2" Grid.Column="1" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_2" x:Name="produkcja">
+        <Button Grid.Row="2" Grid.Column="1" Margin="5px" Padding="2px" Background="#FFCBFFC9" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_2" Style="{StaticResource RoundedButtonStyle}" x:Name="produkcja">
             
             <StackPanel Orientation="Horizontal">
                 <Image Height="65" Source="appbar.cogs.png" Stretch="Fill" Width="65"/>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Produkcja</TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Row="3" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_3" x:Name="sprzedaz">
+        <Button Grid.Row="3" Grid.Column="0" Margin="5px" Padding="2px" Background="#FFCBFFC9" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_3" Style="{StaticResource RoundedButtonStyle}" x:Name="sprzedaz">
             
             <StackPanel Orientation="Horizontal">
                 <Image Height="76" Source="appbar.billing.png" Stretch="Fill" Width="76"/>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Sprzedaż</TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Row="3" Grid.Column="1" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_4" x:Name="statystyki">
+        <Button Grid.Row="3" Grid.Column="1" Margin="5px" Padding="2px" Background="#FFCBFFC9" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_4" Style="{StaticResource RoundedButtonStyle}" x:Name="statystyki">
            
             <StackPanel Orientation="Horizontal">
                 <Image Height="76" Source="appbar.clipboard.variant.edit.png" Stretch="Fill" Width="76"/>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Statystyki</TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Row="4" Grid.ColumnSpan="2" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_5" x:Name="wyjscie" >
+        <Button Grid.Row="4" Grid.ColumnSpan="2" Margin="5px" Padding="2px" Background="#FFCBFFC9" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_5" Style="{StaticResource RoundedButtonStyle}" x:Name="wyjscie" >
             <StackPanel Orientation="Horizontal">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Wyjście</TextBlock>
                 <Image Height="76" Source="exit.png" Stretch="Fill" Width="76"/>
