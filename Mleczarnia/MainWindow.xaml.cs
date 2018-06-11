@@ -79,7 +79,7 @@ namespace Mleczarnia
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {//statystyki
-            StatisticsProductsWindow wnd = new StatisticsProductsWindow();
+            StatisticWindow wnd = new StatisticWindow();
             wnd.Show();
             this.Close();
         }

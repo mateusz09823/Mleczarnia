@@ -5,13 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="82338b56e3044bcfb9c9f6add1d29d22" Name="Diagram1">
-        <EntityTypeShape EntityType="MleczarniaDBModel.Delivery" Width="1.5" PointX="8.25" PointY="0.625" />
-        <EntityTypeShape EntityType="MleczarniaDBModel.Farm" Width="1.5" PointX="6" PointY="0.5" />
-        <EntityTypeShape EntityType="MleczarniaDBModel.Product" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="MleczarniaDBModel.Delivery" Width="1.5" PointX="6.625" PointY="4.75" />
+        <EntityTypeShape EntityType="MleczarniaDBModel.Farm" Width="1.5" PointX="4.375" PointY="4.625" />
+        <EntityTypeShape EntityType="MleczarniaDBModel.Product" Width="1.5" PointX="4.375" PointY="0.5" />
+        <EntityTypeShape EntityType="MleczarniaDBModel.Production" Width="1.5" PointX="6.625" PointY="0.5" />
+        <EntityTypeShape EntityType="MleczarniaDBModel.Sale" Width="1.5" PointX="8.875" PointY="0.625" />
+        <EntityTypeShape EntityType="MleczarniaDBModel.Tank" Width="1.5" PointX="9.375" PointY="4.375" />
         <AssociationConnector Association="MleczarniaDBModel.FK_Delivery_Farm" />
-        <EntityTypeShape EntityType="MleczarniaDBModel.Production" Width="1.5" PointX="3" PointY="0.875" />
         <AssociationConnector Association="MleczarniaDBModel.FK_Production_Product" />
-        <EntityTypeShape EntityType="MleczarniaDBModel.Sale" Width="1.5" PointX="5.25" PointY="4" />
         <AssociationConnector Association="MleczarniaDBModel.FK_Sale_Production" />
       </Diagram>
     </edmx:Diagrams>

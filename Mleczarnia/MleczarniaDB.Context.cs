@@ -30,5 +30,6 @@ namespace Mleczarnia
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Production> Production { get; set; }
         public virtual DbSet<Sale> Sale { get; set; }
+        public virtual DbSet<Tank> Tank { get; set; }
     }
 }

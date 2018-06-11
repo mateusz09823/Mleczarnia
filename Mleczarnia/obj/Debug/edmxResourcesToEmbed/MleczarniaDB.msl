@@ -26,8 +26,7 @@
     <EntitySetMapping Name="Product">
       <EntityTypeMapping TypeName="MleczarniaDBModel.Product">
         <MappingFragment StoreEntitySet="Product">
-          <ScalarProperty Name="sold" ColumnName="sold" />
-          <ScalarProperty Name="made" ColumnName="made" />
+          <ScalarProperty Name="amountOfMilk" ColumnName="amountOfMilk" />
           <ScalarProperty Name="amountInPack" ColumnName="amountInPack" />
           <ScalarProperty Name="type" ColumnName="type" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -38,8 +37,8 @@
     <EntitySetMapping Name="Production">
       <EntityTypeMapping TypeName="MleczarniaDBModel.Production">
         <MappingFragment StoreEntitySet="Production">
-          <ScalarProperty Name="amountOfMilk" ColumnName="amountOfMilk" />
-          <ScalarProperty Name="amountInPack" ColumnName="amountInPack" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="date" ColumnName="date" />
           <ScalarProperty Name="productID" ColumnName="productID" />
           <ScalarProperty Name="productionID" ColumnName="productionID" />
         </MappingFragment>
@@ -52,6 +51,15 @@
           <ScalarProperty Name="amountToSell" ColumnName="amountToSell" />
           <ScalarProperty Name="productionID" ColumnName="productionID" />
           <ScalarProperty Name="saleID" ColumnName="saleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tank">
+      <EntityTypeMapping TypeName="MleczarniaDBModel.Tank">
+        <MappingFragment StoreEntitySet="Tank">
+          <ScalarProperty Name="tankFilling" ColumnName="tankFilling" />
+          <ScalarProperty Name="tankCapacity" ColumnName="tankCapacity" />
+          <ScalarProperty Name="tankID" ColumnName="tankID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

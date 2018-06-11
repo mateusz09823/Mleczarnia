@@ -4,16 +4,17 @@
     <EntitySet Name="Delivery" EntityType="MleczarniaDBModel.Delivery" />
     <EntitySet Name="Farm" EntityType="MleczarniaDBModel.Farm" />
     <EntitySet Name="Product" EntityType="MleczarniaDBModel.Product" />
+    <EntitySet Name="Production" EntityType="MleczarniaDBModel.Production" />
+    <EntitySet Name="Sale" EntityType="MleczarniaDBModel.Sale" />
+    <EntitySet Name="Tank" EntityType="MleczarniaDBModel.Tank" />
     <AssociationSet Name="FK_Delivery_Farm" Association="MleczarniaDBModel.FK_Delivery_Farm">
       <End Role="Farm" EntitySet="Farm" />
       <End Role="Delivery" EntitySet="Delivery" />
     </AssociationSet>
-    <EntitySet Name="Production" EntityType="MleczarniaDBModel.Production" />
     <AssociationSet Name="FK_Production_Product" Association="MleczarniaDBModel.FK_Production_Product">
       <End Role="Product" EntitySet="Product" />
       <End Role="Production" EntitySet="Production" />
     </AssociationSet>
-    <EntitySet Name="Sale" EntityType="MleczarniaDBModel.Sale" />
     <AssociationSet Name="FK_Sale_Production" Association="MleczarniaDBModel.FK_Sale_Production">
       <End Role="Production" EntitySet="Production" />
       <End Role="Sale" EntitySet="Sale" />
@@ -49,12 +50,42 @@
     <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="amountInPack" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="made" Type="Int32" />
-    <Property Name="sold" Type="Int32" />
+    <Property Name="amountOfMilk" Type="Single" />
     <NavigationProperty Name="Production" Relationship="MleczarniaDBModel.FK_Production_Product" FromRole="Product" ToRole="Production" />
   </EntityType>
+  <EntityType Name="Production">
+    <Key>
+      <PropertyRef Name="productionID" />
+    </Key>
+    <Property Name="productionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="productID" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Precision="0" />
+    <Property Name="amount" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="MleczarniaDBModel.FK_Production_Product" FromRole="Production" ToRole="Product" />
+    <NavigationProperty Name="Sale" Relationship="MleczarniaDBModel.FK_Sale_Production" FromRole="Production" ToRole="Sale" />
+  </EntityType>
+  <EntityType Name="Sale">
+    <Key>
+      <PropertyRef Name="saleID" />
+    </Key>
+    <Property Name="saleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="productionID" Type="Int32" Nullable="false" />
+    <Property Name="amountToSell" Type="Single" />
+    <Property Name="price" Type="Single" />
+    <NavigationProperty Name="Production" Relationship="MleczarniaDBModel.FK_Sale_Production" FromRole="Sale" ToRole="Production" />
+  </EntityType>
+  <EntityType Name="Tank">
+    <Key>
+      <PropertyRef Name="tankID" />
+    </Key>
+    <Property Name="tankID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tankCapacity" Type="Single" />
+    <Property Name="tankFilling" Type="Single" />
+  </EntityType>
   <Association Name="FK_Delivery_Farm">
-    <End Type="MleczarniaDBModel.Farm" Role="Farm" Multiplicity="1" />
+    <End Type="MleczarniaDBModel.Farm" Role="Farm" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Type="MleczarniaDBModel.Delivery" Role="Delivery" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Farm">
@@ -65,17 +96,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="Production">
-    <Key>
-      <PropertyRef Name="productionID" />
-    </Key>
-    <Property Name="productionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="productID" Type="Int32" Nullable="false" />
-    <Property Name="amountInPack" Type="Single" />
-    <Property Name="amountOfMilk" Type="Single" />
-    <NavigationProperty Name="Product" Relationship="MleczarniaDBModel.FK_Production_Product" FromRole="Production" ToRole="Product" />
-    <NavigationProperty Name="Sale" Relationship="MleczarniaDBModel.FK_Sale_Production" FromRole="Production" ToRole="Sale" />
-  </EntityType>
   <Association Name="FK_Production_Product">
     <End Type="MleczarniaDBModel.Product" Role="Product" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -90,16 +110,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="Sale">
-    <Key>
-      <PropertyRef Name="saleID" />
-    </Key>
-    <Property Name="saleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="productionID" Type="Int32" Nullable="false" />
-    <Property Name="amountToSell" Type="Single" />
-    <Property Name="price" Type="Single" />
-    <NavigationProperty Name="Production" Relationship="MleczarniaDBModel.FK_Sale_Production" FromRole="Sale" ToRole="Production" />
-  </EntityType>
   <Association Name="FK_Sale_Production">
     <End Type="MleczarniaDBModel.Production" Role="Production" Multiplicity="1">
       <OnDelete Action="Cascade" />

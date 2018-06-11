@@ -67,6 +67,7 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding Product.name}"></TextBlock>
+                            <TextBlock Text="{Binding date}"></TextBlock>
                         </StackPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>

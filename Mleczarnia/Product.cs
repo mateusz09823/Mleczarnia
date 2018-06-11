@@ -24,8 +24,7 @@ namespace Mleczarnia
         public string name { get; set; }
         public string type { get; set; }
         public string amountInPack { get; set; }
-        public Nullable<int> made { get; set; }
-        public Nullable<int> sold { get; set; }
+        public Nullable<float> amountOfMilk { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Production> Production { get; set; }

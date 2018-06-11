@@ -45,8 +45,7 @@
                         <GridViewColumn Header="Nazwa" Width="120" DisplayMemberBinding="{Binding name}" />
                         <GridViewColumn Header="Typ" Width="120" DisplayMemberBinding="{Binding type}" />
                         <GridViewColumn Header="Ilość w paczce" Width="120" DisplayMemberBinding="{Binding amountInPack}" />
-                        <GridViewColumn Header="Wyprodukowano" Width="120" DisplayMemberBinding="{Binding made}" />
-                        <GridViewColumn Header="Sprzedano" Width="120" DisplayMemberBinding="{Binding sold}" />
+                        <GridViewColumn Header="Ilość mleka" Width="120" DisplayMemberBinding="{Binding amountOfMilk}" />
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -58,7 +57,6 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="0.9*"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -70,10 +68,8 @@
             <TextBox Name="type"  Grid.Row="1" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=type, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
             <Label Grid.Row="2" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Ilość w paczce:</Label>
             <TextBox Name="amountInPack" Grid.Row="2" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=amountInPack, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
-            <Label Grid.Row="3" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Wyprodukowane:</Label>
-            <TextBox Name="made" Grid.Row="3" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=made, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
-            <Label Grid.Row="4" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Sprzedane:</Label>
-            <TextBox Name="sold" Grid.Row="4" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=sold, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <Label Grid.Row="3" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Ilosć mleka:</Label>
+            <TextBox Name="made" Grid.Row="3" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=amountOfMilk, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
             <Grid Grid.ColumnSpan="2" Grid.Row="5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>

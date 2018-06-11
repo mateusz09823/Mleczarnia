@@ -97,14 +97,14 @@
     <Compile Include="SalesWindow.xaml.cs">
       <DependentUpon>SalesWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StatisticsFarmsWindow.xaml.cs">
-      <DependentUpon>StatisticsFarmsWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="StatisticsProductsWindow..xaml.cs">
-      <DependentUpon>StatisticsProductsWindow..xaml</DependentUpon>
+    <Compile Include="StatisticWindow.xaml.cs">
+      <DependentUpon>StatisticWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SupplyWindow.xaml.cs">
       <DependentUpon>SupplyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tank.cs">
+      <DependentUpon>MleczarniaDB.tt</DependentUpon>
     </Compile>
     <Page Include="FarmsWindow.xaml">
       <SubType>Designer</SubType>
@@ -137,11 +137,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StatisticsFarmsWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="StatisticsProductsWindow..xaml">
+    <Page Include="StatisticWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

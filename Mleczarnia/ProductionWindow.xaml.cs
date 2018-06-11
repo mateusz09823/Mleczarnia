@@ -90,6 +90,8 @@ namespace Mleczarnia
         {
             Production f = new Production();
             f.productID = 1;
+            f.date = DateTime.Now;
+            f.amount=0;
             db.Production.Add(f);
             db.SaveChanges();
             Rows.Add(f);
