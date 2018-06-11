@@ -27,7 +27,7 @@ namespace Mleczarnia
         public SupplyWindow()
         {
             InitializeComponent();
-            farmID.IsEditable = false;
+            farmID.IsHitTestVisible = false;
             date.Focusable = false;
             milkAmount.Focusable = false;
             var delivery = db.Delivery;
@@ -45,14 +45,20 @@ namespace Mleczarnia
             deliveryList.Items.Refresh();
         }
 
-        private void SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void ListView_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            if (farmID.Focusable == false)
+            if (farmID.IsHitTestVisible == false)
             {
-                farmID.Focusable = true;
+                farmID.IsHitTestVisible = true;
                 date.Focusable = true;
                 milkAmount.Focusable = true;
             }
+        }
+
+        private void Combobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            db.SaveChanges();
+            deliveryList.Items.Refresh();
         }
 
         private void TextBoxGotKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
@@ -102,13 +108,7 @@ namespace Mleczarnia
             Rows.Add(f);
             deliveryList.Items.Refresh();
 
-        }
-
-        private void Combobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            db.SaveChanges();
-            deliveryList.Items.Refresh();
-        }
+        } 
     }
 
     public class Farms : ObservableCollection<Farm>

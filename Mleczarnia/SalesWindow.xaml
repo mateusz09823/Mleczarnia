@@ -30,7 +30,7 @@
         </Grid.Resources>
         <Grid Margin="5,5,2,5.4" Grid.Row="1">
             <ListView Name="salesList" Grid.ColumnSpan="4" Grid.RowSpan="4" Background="#FFCBFFC9" ItemsSource="{StaticResource mProduction}" 
-                    SelectionChanged="SelectionChanged"  >
+                    SelectionChanged="ListView_SelectionChanged"  >
 
                 <ListView.View>
                     <GridView>
@@ -55,27 +55,28 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Row="0" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Produkt:</Label>
-            <ComboBox Name="prouctionID" Grid.Row="0" Grid.Column="1" Margin="10px" FontSize="18" FontFamily="Tw Cen MT Condensed" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+            <ComboBox Name="productionID" Grid.Row="0" Grid.Column="1" Margin="10px" FontSize="18" FontFamily="Tw Cen MT Condensed" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
                       ItemsSource="{StaticResource mProduction}" 
                        
                       SelectedValuePath="productionID"
                       SelectedValue="{Binding productionID}"
                       SelectedItem="sProduction"
-                      SelectionChanged="SelectionChanged" Height="62"  Grid.RowSpan="2" VerticalAlignment="Top">
+                      SelectionChanged="Combobox_SelectionChanged" Height="62"  Grid.RowSpan="2" VerticalAlignment="Top">
 
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding Product.name}"></TextBlock>
+                            <TextBlock Text=" "/>
                             <TextBlock Text="{Binding date}"></TextBlock>
                         </StackPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
             <Label Grid.Row="1" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Ilość:</Label>
-            <TextBox Name="date"  Grid.Row="1" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=amountToSell, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <TextBox Name="amount"  Grid.Row="1" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=amountToSell, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
             <Label Grid.Row="2" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Koszt:</Label>
-            <TextBox Name="milkAmount" Grid.Row="2" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=price, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <TextBox Name="price" Grid.Row="2" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=price, UpdateSourceTrigger=PropertyChanged,StringFormat=N2}" VerticalAlignment="Center"/>
             <Button  Grid.ColumnSpan="2" Grid.Row="3"  Margin="8px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Background="#FF60E4A9" Style="{StaticResource RoundedButtonStyle}" Command="cmds:Commands.Add">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Image Height="55" Source="appbar.currency.dollar.png" Stretch="Fill" Width="55" HorizontalAlignment="Center" VerticalAlignment="Center"/>

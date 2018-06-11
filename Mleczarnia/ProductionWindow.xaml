@@ -35,7 +35,7 @@
         </ToolBar>
         <Grid Margin="5,5,2,5.4" Grid.Row="1">
             <ListView  Background="#FFCBFFC9" Name="productionList" Grid.ColumnSpan="4" Grid.RowSpan="4" ItemsSource="{StaticResource mProducts}"
-                      >
+                   SelectionChanged="ListView_SelectionChanged"   >
 
                 <ListView.View>
                     <GridView>
@@ -60,13 +60,13 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Row="0" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Produkt:</Label>
-            <ComboBox Name="farmID" Grid.Row="0" Grid.Column="1" FontSize="18" FontFamily="Tw Cen MT Condensed" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+            <ComboBox Name="productID" Grid.Row="0" Grid.Column="1" FontSize="18" FontFamily="Tw Cen MT Condensed" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
                       ItemsSource="{StaticResource mProducts}" 
                        
                       SelectedValuePath="productID"
                       SelectedValue="{Binding productID}"
                       SelectedItem="sProduct"
-                      SelectionChanged="SelectionChanged" Height="62" Margin="0,0,-0.4,0" Grid.RowSpan="2" VerticalAlignment="Top">
+                      SelectionChanged="Combobox_SelectionChanged" Height="62" Margin="0,0,-0.4,0" Grid.RowSpan="2" VerticalAlignment="Top">
 
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -77,9 +77,9 @@
                 </ComboBox.ItemTemplate>
             </ComboBox>
             <Label Grid.Row="1" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Ilość:</Label>
-            <TextBox Name="date"  Grid.Row="1" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=amount, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <TextBox Name="amount"  Grid.Row="1" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=amount, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
             <Label Grid.Row="2" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Data:</Label>
-            <TextBox Name="milkAmount" Grid.Row="2" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=date, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <TextBox Name="date" Grid.Row="2" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=date, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
 
             <Grid Grid.ColumnSpan="2" Grid.Row="5">
                 <Grid.ColumnDefinitions>

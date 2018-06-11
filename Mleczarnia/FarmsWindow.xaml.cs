@@ -83,7 +83,7 @@ namespace Mleczarnia
             farmsList.Items.Refresh();
         }
 
-        private void SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(name.Focusable == false)
             {

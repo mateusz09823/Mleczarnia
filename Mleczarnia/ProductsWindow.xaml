@@ -38,7 +38,7 @@
 
         </ToolBar>
         <Grid Margin="5,4.6,4.4,5" Grid.Row="1">
-            <ListView Name="productsList" Grid.ColumnSpan="4" Grid.RowSpan="4"  Background="#FFCBFFC9">
+            <ListView Name="productsList" Grid.ColumnSpan="4" Grid.RowSpan="4" SelectionChanged="ListView_SelectionChanged"  Background="#FFCBFFC9">
 
                 <ListView.View>
                     <GridView>
@@ -69,7 +69,7 @@
             <Label Grid.Row="2" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Ilość w paczce:</Label>
             <TextBox Name="amountInPack" Grid.Row="2" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=amountInPack, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
             <Label Grid.Row="3" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Ilosć mleka:</Label>
-            <TextBox Name="made" Grid.Row="3" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=amountOfMilk, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <TextBox Name="made" Grid.Row="3" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=amountOfMilk, UpdateSourceTrigger=PropertyChanged,StringFormat=N2}" VerticalAlignment="Center"/>
             <Grid Grid.ColumnSpan="2" Grid.Row="5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>

@@ -27,6 +27,9 @@ namespace Mleczarnia
         public ProductionWindow()
         {
             InitializeComponent();
+            productID.IsHitTestVisible = false;
+            date.Focusable = false;
+            amount.Focusable = false;
             var production = db.Production;
             var products = db.Product;
             foreach (var item in production)
@@ -43,7 +46,17 @@ namespace Mleczarnia
             productionList.Items.Refresh();
         }
 
-        private void SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void ListView_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (productID.IsHitTestVisible == false)
+            {
+                productID.IsHitTestVisible = true;
+                date.Focusable = true;
+                amount.Focusable = true;
+            }
+        }
+
+        private void Combobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             db.SaveChanges();
             productionList.Items.Refresh();

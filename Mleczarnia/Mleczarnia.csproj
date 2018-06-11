@@ -85,6 +85,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MleczarniaDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="nipRule.cs" />
     <Compile Include="Product.cs">
       <DependentUpon>MleczarniaDB.tt</DependentUpon>
     </Compile>

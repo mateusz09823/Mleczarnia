@@ -24,8 +24,11 @@ namespace Mleczarnia
         List<Product> Rows = new List<Product>();
         public ProductsWindow()
          {
-            
             InitializeComponent();
+            name.Focusable = false;
+            type.Focusable = false;
+            amountInPack.Focusable = false;
+            made.Focusable = false;
             var products = db.Product;
             foreach (var item in products)
             {
@@ -46,6 +49,17 @@ namespace Mleczarnia
             TextBox box = (TextBox)sender;
             box.SelectAll();
             box.Focus();
+        }
+
+        private void ListView_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (name.Focusable == false)
+            {
+                name.Focusable = true;
+                type.Focusable = true;
+                amountInPack.Focusable = true;
+                made.Focusable = true;
+            }
         }
 
         private void Delete_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -87,6 +101,11 @@ namespace Mleczarnia
             db.SaveChanges();
             Rows.Add(f);
             productsList.Items.Refresh();
+        }
+
+        private void productsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
