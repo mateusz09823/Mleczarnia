@@ -100,15 +100,9 @@
     <Compile Include="ProductionNewWindow.xaml.cs">
       <DependentUpon>ProductionNewWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProductsAddWindow.xaml.cs">
-      <DependentUpon>ProductsAddWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ProductsEditWindow.xaml.cs">
-      <DependentUpon>ProductsEditWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ProductsList.cs" />
-    <Compile Include="SalesNewWindow.xaml.cs">
-      <DependentUpon>SalesNewWindow.xaml</DependentUpon>
+    <Compile Include="Sale.cs">
+      <DependentUpon>MleczarniaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="SalesWindow.xaml.cs">
       <DependentUpon>SalesWindow.xaml</DependentUpon>
@@ -118,9 +112,6 @@
     </Compile>
     <Compile Include="StatisticsProductsWindow..xaml.cs">
       <DependentUpon>StatisticsProductsWindow..xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SupplyNewWindow.xaml.cs">
-      <DependentUpon>SupplyNewWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SupplyWindow.xaml.cs">
       <DependentUpon>SupplyWindow.xaml</DependentUpon>
@@ -160,19 +151,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ProductsAddWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ProductsEditWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ProductsWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="SalesNewWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -185,10 +164,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StatisticsProductsWindow..xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="SupplyNewWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

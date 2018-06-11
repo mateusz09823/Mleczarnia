@@ -42,25 +42,9 @@ namespace Mleczarnia
             this.Close();
          }
 
-         private void Button_Click_1(object sender, RoutedEventArgs e)
-         {
-             ProductsAddWindow wnd = new ProductsAddWindow();
-             wnd.Show();
-             this.Close();
-         }
+        
 
-         /*private void Button_Click_2(object sender, RoutedEventArgs e)
-         {
-             int id;
-             if (lvProducts.SelectedIndex == -1)
-             {
-                 id = 0;
-             }
-             else id = lvProducts.SelectedIndex;
-             ProductsEditWindow wnd = new ProductsEditWindow(id);
-             wnd.Show();
-             this.Close();
-         }*/
+         
          private void Button_Click_3(object sender, RoutedEventArgs e)
          {
             Rows.RemoveAt(productsList.SelectedIndex);

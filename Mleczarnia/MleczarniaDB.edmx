@@ -45,6 +45,15 @@
           <Property Name="amountInPack" Type="real" />
           <Property Name="amountOfMilk" Type="real" />
         </EntityType>
+        <EntityType Name="Sale">
+          <Key>
+            <PropertyRef Name="saleID" />
+          </Key>
+          <Property Name="saleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productionID" Type="int" Nullable="false" />
+          <Property Name="amountToSell" Type="real" />
+          <Property Name="price" Type="real" />
+        </EntityType>
         <Association Name="FK_Delivery_Farm">
           <End Role="Farm" Type="Self.Farm" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -73,11 +82,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Sale_Production">
+          <End Role="Production" Type="Self.Production" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Production">
+              <PropertyRef Name="productionID" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="productionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="MleczarniaDBModelStoreContainer">
           <EntitySet Name="Delivery" EntityType="Self.Delivery" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Farm" EntityType="Self.Farm" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Production" EntityType="Self.Production" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sale" EntityType="Self.Sale" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Delivery_Farm" Association="Self.FK_Delivery_Farm">
             <End Role="Farm" EntitySet="Farm" />
             <End Role="Delivery" EntitySet="Delivery" />
@@ -85,6 +109,10 @@
           <AssociationSet Name="FK_Production_Product" Association="Self.FK_Production_Product">
             <End Role="Product" EntitySet="Product" />
             <End Role="Production" EntitySet="Production" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Production" Association="Self.FK_Sale_Production">
+            <End Role="Production" EntitySet="Production" />
+            <End Role="Sale" EntitySet="Sale" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -103,6 +131,11 @@
           <AssociationSet Name="FK_Production_Product" Association="MleczarniaDBModel.FK_Production_Product">
             <End Role="Product" EntitySet="Product" />
             <End Role="Production" EntitySet="Production" />
+          </AssociationSet>
+          <EntitySet Name="Sale" EntityType="MleczarniaDBModel.Sale" />
+          <AssociationSet Name="FK_Sale_Production" Association="MleczarniaDBModel.FK_Sale_Production">
+            <End Role="Production" EntitySet="Production" />
+            <End Role="Sale" EntitySet="Sale" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Delivery">
@@ -160,6 +193,7 @@
           <Property Name="amountInPack" Type="Single" />
           <Property Name="amountOfMilk" Type="Single" />
           <NavigationProperty Name="Product" Relationship="MleczarniaDBModel.FK_Production_Product" FromRole="Production" ToRole="Product" />
+          <NavigationProperty Name="Sale" Relationship="MleczarniaDBModel.FK_Sale_Production" FromRole="Production" ToRole="Sale" />
         </EntityType>
         <Association Name="FK_Production_Product">
           <End Type="MleczarniaDBModel.Product" Role="Product" Multiplicity="1">
@@ -172,6 +206,30 @@
             </Principal>
             <Dependent Role="Production">
               <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Sale">
+          <Key>
+            <PropertyRef Name="saleID" />
+          </Key>
+          <Property Name="saleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productionID" Type="Int32" Nullable="false" />
+          <Property Name="amountToSell" Type="Single" />
+          <Property Name="price" Type="Single" />
+          <NavigationProperty Name="Production" Relationship="MleczarniaDBModel.FK_Sale_Production" FromRole="Sale" ToRole="Production" />
+        </EntityType>
+        <Association Name="FK_Sale_Production">
+          <End Type="MleczarniaDBModel.Production" Role="Production" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="MleczarniaDBModel.Sale" Role="Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Production">
+              <PropertyRef Name="productionID" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="productionID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -222,6 +280,16 @@
                 <ScalarProperty Name="amountInPack" ColumnName="amountInPack" />
                 <ScalarProperty Name="productID" ColumnName="productID" />
                 <ScalarProperty Name="productionID" ColumnName="productionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sale">
+            <EntityTypeMapping TypeName="MleczarniaDBModel.Sale">
+              <MappingFragment StoreEntitySet="Sale">
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="amountToSell" ColumnName="amountToSell" />
+                <ScalarProperty Name="productionID" ColumnName="productionID" />
+                <ScalarProperty Name="saleID" ColumnName="saleID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

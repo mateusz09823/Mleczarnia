@@ -45,5 +45,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Sale">
+      <EntityTypeMapping TypeName="MleczarniaDBModel.Sale">
+        <MappingFragment StoreEntitySet="Sale">
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="amountToSell" ColumnName="amountToSell" />
+          <ScalarProperty Name="productionID" ColumnName="productionID" />
+          <ScalarProperty Name="saleID" ColumnName="saleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -20,29 +21,101 @@ namespace Mleczarnia
     /// </summary>
     public partial class SalesWindow : Window
     {
+        MleczarniaDBEntities2 db = new MleczarniaDBEntities2();
+        List<Sale> Rows = new List<Sale>();
+
         public SalesWindow()
         {
             InitializeComponent();
+            var sale = db.Sale;
+            var productions = db.Production;
+            foreach (var item in sale)
+            {
+                item.production = productions.Find(item.productionID).Product.name;
+                Rows.Add(item);
+            }
+           salesList.ItemsSource = Rows;
         }
+
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow wnd = new MainWindow();
             wnd.Show();
+            db.SaveChanges();
             this.Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        
+        private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            SalesNewWindow wnd = new SalesNewWindow();
-            wnd.Show();
-            this.Close();
+            Rows.RemoveAt(salesList.SelectedIndex);
+            db.Sale.Remove((Sale)salesList.SelectedItem);
+            salesList.Items.Refresh();
+            db.SaveChanges();
         }
 
-        void Window_Closing(object sender, CancelEventArgs e)
+        private void AddSale(object sender, RoutedEventArgs e)
         {
-            FarmsList.SaveToFileFarms();
+            Sale f = new Sale();
+            f.amountToSell = 0;
+            f.price = 0;
+            db.Sale.Add(f);
+            db.SaveChanges();
+            Rows.Add(f);
+            salesList.Items.Refresh();
+        }
 
+        private void TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            salesList.Items.Refresh();
+        }
+
+        private void SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            db.SaveChanges();
+            salesList.Items.Refresh();
+        }
+
+        private void TextBoxGotKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
+        {
+            TextBox box = (TextBox)sender;
+            box.SelectAll();
+            box.Focus();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Sale f = new Sale();
+            f.amountToSell = 0;
+            f.price = 0;
+            f.productionID = 1;
+            db.Sale.Add(f);
+            db.SaveChanges();
+            Rows.Add(f);
+            salesList.Items.Refresh();
+        }
+    }
+
+    public class Productions : ObservableCollection<Production>
+    {
+        public Production sProduction { set; get; }
+        public Production SProduction
+        {
+            get { return sProduction; }
+            set { sProduction = value; }
+        }
+
+
+        public Productions()
+        {
+            MleczarniaDBEntities2 db = new MleczarniaDBEntities2();
+            var production = db.Production;
+            foreach (var item in production)
+            {
+                Add(item);
+            }
         }
     }
 }

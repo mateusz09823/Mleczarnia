@@ -47,12 +47,7 @@ namespace Mleczarnia
             this.Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            SupplyNewWindow wnd = new SupplyNewWindow();
-            wnd.Show();
-            this.Close();
-        }
+        
 
         /*private void Button_Click_2(object sender, RoutedEventArgs e)
         {

@@ -13,6 +13,11 @@
       <End Role="Product" EntitySet="Product" />
       <End Role="Production" EntitySet="Production" />
     </AssociationSet>
+    <EntitySet Name="Sale" EntityType="MleczarniaDBModel.Sale" />
+    <AssociationSet Name="FK_Sale_Production" Association="MleczarniaDBModel.FK_Sale_Production">
+      <End Role="Production" EntitySet="Production" />
+      <End Role="Sale" EntitySet="Sale" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Delivery">
     <Key>
@@ -69,6 +74,7 @@
     <Property Name="amountInPack" Type="Single" />
     <Property Name="amountOfMilk" Type="Single" />
     <NavigationProperty Name="Product" Relationship="MleczarniaDBModel.FK_Production_Product" FromRole="Production" ToRole="Product" />
+    <NavigationProperty Name="Sale" Relationship="MleczarniaDBModel.FK_Sale_Production" FromRole="Production" ToRole="Sale" />
   </EntityType>
   <Association Name="FK_Production_Product">
     <End Type="MleczarniaDBModel.Product" Role="Product" Multiplicity="1">
@@ -81,6 +87,30 @@
       </Principal>
       <Dependent Role="Production">
         <PropertyRef Name="productID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Sale">
+    <Key>
+      <PropertyRef Name="saleID" />
+    </Key>
+    <Property Name="saleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="productionID" Type="Int32" Nullable="false" />
+    <Property Name="amountToSell" Type="Single" />
+    <Property Name="price" Type="Single" />
+    <NavigationProperty Name="Production" Relationship="MleczarniaDBModel.FK_Sale_Production" FromRole="Sale" ToRole="Production" />
+  </EntityType>
+  <Association Name="FK_Sale_Production">
+    <End Type="MleczarniaDBModel.Production" Role="Production" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MleczarniaDBModel.Sale" Role="Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Production">
+        <PropertyRef Name="productionID" />
+      </Principal>
+      <Dependent Role="Sale">
+        <PropertyRef Name="productionID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
