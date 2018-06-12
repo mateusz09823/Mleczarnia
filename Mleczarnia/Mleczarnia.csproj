@@ -205,6 +205,7 @@
     <Resource Include="cow.jpg" />
     <Resource Include="cow.png" />
     <Resource Include="appbar.page.file.pdf.tag.png" />
+    <Resource Include="appbar.printer.text.png" />
     <Content Include="MleczarniaDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MleczarniaDB.edmx</DependentUpon>
