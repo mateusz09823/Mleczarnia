@@ -11,8 +11,19 @@
         <CommandBinding Command="cmds:Commands.Delete" CanExecute="Delete_CanExecute" Executed="Delete_Executed"/>
         <CommandBinding Command="cmds:Commands.Return" Executed="Return_Executed"/>
         <CommandBinding Command="cmds:Commands.Add" Executed="Add_Executed"/>
+        
     </Window.CommandBindings>
     <Window.Resources>
+        <DataTemplate x:Key="ElementTemplate">
+            <Border Background="#FF76EDA6" BorderThickness="1" Margin="1" BorderBrush="Black"  CornerRadius="6" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <StackPanel   Margin="2px" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label  Content="{Binding name}" FontSize="20" FontFamily="Tw Cen MT Condensed" FontWeight="Bold" HorizontalAlignment="Right"></Label>
+                    <Label  Content="{Binding type}" FontSize="20" FontFamily="Tw Cen MT Condensed" FontWeight="Bold" HorizontalAlignment="Left"></Label>
+                    <Label  Content="{Binding amountInPack}" FontSize="20" FontFamily="Tw Cen MT Condensed" ></Label>
+                    <Label  Content="{Binding amountOfMilk}" FontSize="20" FontFamily="Tw Cen MT Condensed" ></Label>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
         <DataTemplate x:Key="GroupTemplate">
             <TextBlock Text="{Binding Path=Name}"
                         FontWeight="Bold" Foreground="White" Background="ForestGreen"
@@ -35,20 +46,23 @@
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">Dodaj</TextBlock>
                 </StackPanel>
             </Button>
+            <ComboBox SelectedIndex="0">
+                <ComboBoxItem Selected="GroupNone">Bez grupowania</ComboBoxItem>
+                <ComboBoxItem Selected="GroupName">Grupuj po nazwie</ComboBoxItem>
+                <ComboBoxItem Selected="GroupType">Grupuj po typie</ComboBoxItem>
+            </ComboBox>
+            <Label>Ilość mleka od:</Label>
+            <TextBox MinWidth="50" Name="milk"/>
+            <Button Click="Filter">Filtruj</Button>
+            <Button Click="FilterNone">Usuń Filtr</Button>
 
         </ToolBar>
         <Grid Margin="5,4.6,4.4,5" Grid.Row="1">
-            <ListView Name="productsList" Grid.ColumnSpan="4" Grid.RowSpan="4" SelectionChanged="ListView_SelectionChanged"  Background="#FFCBFFC9">
-
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Nazwa" Width="120" DisplayMemberBinding="{Binding name}" />
-                        <GridViewColumn Header="Typ" Width="120" DisplayMemberBinding="{Binding type}" />
-                        <GridViewColumn Header="Ilość w paczce" Width="120" DisplayMemberBinding="{Binding amountInPack}" />
-                        <GridViewColumn Header="Ilość mleka" Width="120" DisplayMemberBinding="{Binding amountOfMilk}" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            <ListBox  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Background="#FFCBFFC9" Name="productsList" SelectionChanged="ListView_SelectionChanged" Grid.ColumnSpan="4" Grid.RowSpan="4" ItemTemplate="{StaticResource ElementTemplate}">
+                <ListBox.GroupStyle>
+                    <GroupStyle HeaderTemplate="{StaticResource GroupTemplate}"/>
+                </ListBox.GroupStyle>
+            </ListBox>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1" Margin="8.6,4.6,4.2,5"  DataContext="{Binding ElementName=productsList, Path=SelectedItem}">
             <Grid.RowDefinitions>

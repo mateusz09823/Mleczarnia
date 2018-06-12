@@ -39,8 +39,14 @@ namespace Mleczarnia
             }
            productionList.ItemsSource = Rows;
         }
+        private ListCollectionView View
+        {
+            get
+            {
+                return (ListCollectionView)CollectionViewSource.GetDefaultView(Rows);
+            }
+        }
 
-        
         private void TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             productionList.Items.Refresh();
@@ -109,6 +115,35 @@ namespace Mleczarnia
             db.SaveChanges();
             Rows.Add(f);
             productionList.Items.Refresh();
+        }
+        private void Filter(object sender, RoutedEventArgs e)
+        {
+            float minimuAmountOfProduct;
+            if (float.TryParse(amountOfProduct.Text, out minimuAmountOfProduct))
+            {
+                View.Filter = delegate (object item)
+                {
+                    Production product = item as Production;
+                    if (product != null)
+                    {
+                        return (product.amount > minimuAmountOfProduct);
+                    }
+                    return false;
+                };
+            }
+        }
+        private void FilterNone(object sender, RoutedEventArgs e)
+        {
+            View.Filter = null;
+        }
+        private void GroupName(object sender, RoutedEventArgs e)
+        {
+            View.GroupDescriptions.Clear();
+            View.GroupDescriptions.Add(new PropertyGroupDescription("Product.name"));
+        }
+        private void GroupNone(object sender, RoutedEventArgs e)
+        {
+            View.GroupDescriptions.Clear();
         }
     }
 

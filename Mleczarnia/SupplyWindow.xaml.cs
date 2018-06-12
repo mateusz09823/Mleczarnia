@@ -39,6 +39,13 @@ namespace Mleczarnia
             }
             deliveryList.ItemsSource = Rows;
         }
+        private ListCollectionView View
+        {
+            get
+            {
+                return (ListCollectionView)CollectionViewSource.GetDefaultView(Rows);
+            }
+        }
 
         private void TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
@@ -108,7 +115,36 @@ namespace Mleczarnia
             Rows.Add(f);
             deliveryList.Items.Refresh();
 
-        } 
+        }
+        private void Filter(object sender, RoutedEventArgs e)
+        {
+            float minimuAmountOfMilk;
+            if (float.TryParse(milk.Text, out minimuAmountOfMilk))
+            {
+                View.Filter = delegate (object item)
+                {
+                    Delivery product = item as Delivery;
+                    if (product != null)
+                    {
+                        return (product.milkAmount > minimuAmountOfMilk);
+                    }
+                    return false;
+                };
+            }
+        }
+        private void FilterNone(object sender, RoutedEventArgs e)
+        {
+            View.Filter = null;
+        }
+        private void GroupSurname(object sender, RoutedEventArgs e)
+        {
+            View.GroupDescriptions.Clear();
+            View.GroupDescriptions.Add(new PropertyGroupDescription("Farm.surname"));
+        }
+        private void GroupNone(object sender, RoutedEventArgs e)
+        {
+            View.GroupDescriptions.Clear();
+        }
     }
 
     public class Farms : ObservableCollection<Farm>

@@ -13,7 +13,22 @@
         <CommandBinding Command="cmds:Commands.Return" Executed="Return_Executed"/>
         <CommandBinding Command="cmds:Commands.Add" Executed="Add_Executed"/>
     </Window.CommandBindings>
-    
+    <Window.Resources>
+        <DataTemplate x:Key="ElementTemplate">
+            <Border Background="#FF76EDA6" BorderThickness="1" Margin="1" BorderBrush="Black"  CornerRadius="6" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <StackPanel   Margin="2px" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label  Content="{Binding Production.Product.name}" FontSize="20" FontFamily="Tw Cen MT Condensed" FontWeight="Bold" HorizontalAlignment="Right"></Label>
+                    <Label  Content="{Binding amountToSell}" FontSize="20" FontFamily="Tw Cen MT Condensed" FontWeight="Bold" HorizontalAlignment="Left"></Label>
+                    <Label  Content="{Binding price}" FontSize="20" FontFamily="Tw Cen MT Condensed" ></Label>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="GroupTemplate">
+            <TextBlock Text="{Binding Path=Name}"
+                        FontWeight="Bold" Foreground="White" Background="ForestGreen"
+                        Margin="0,5,0,0" Padding="3"/>
+        </DataTemplate>
+    </Window.Resources>
     
 
     <Grid>
@@ -28,18 +43,22 @@
         <Grid.Resources>
             <src:Productions x:Key="mProduction"/>
         </Grid.Resources>
+        <ToolBar Background="#FFCBFFC9" Grid.ColumnSpan="2">
+            <ComboBox SelectedIndex="0">
+                <ComboBoxItem Selected="GroupNone">Bez grupowania</ComboBoxItem>
+                <ComboBoxItem Selected="GroupName">Grupuj po nazwie produktu</ComboBoxItem>
+            </ComboBox>
+            <Label>Ilość produktu od:</Label>
+            <TextBox MinWidth="50" Name="amountOfProduct"/>
+            <Button Click="Filter">Filtruj</Button>
+            <Button Click="FilterNone">Usuń Filtr</Button>
+        </ToolBar>
         <Grid Margin="5,5,2,5.4" Grid.Row="1">
-            <ListView Name="salesList" Grid.ColumnSpan="4" Grid.RowSpan="4" Background="#FFCBFFC9" ItemsSource="{StaticResource mProduction}" 
-                    SelectionChanged="ListView_SelectionChanged"  >
-
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Partia produktu" Width="210"  DisplayMemberBinding="{Binding Production.Product.name}" />
-                        <GridViewColumn Header="Ilość" Width="120" DisplayMemberBinding="{Binding amountToSell}" />
-                        <GridViewColumn Header="Koszt" Width="120" DisplayMemberBinding="{Binding price}" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            <ListBox  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Background="#FFCBFFC9" Name="salesList" SelectionChanged="ListView_SelectionChanged" Grid.ColumnSpan="4" Grid.RowSpan="4" ItemTemplate="{StaticResource ElementTemplate}">
+                <ListBox.GroupStyle>
+                    <GroupStyle HeaderTemplate="{StaticResource GroupTemplate}"/>
+                </ListBox.GroupStyle>
+            </ListBox>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1" Margin="5px" DataContext="{Binding ElementName=salesList, Path=SelectedItem}">
             <Grid.RowDefinitions>

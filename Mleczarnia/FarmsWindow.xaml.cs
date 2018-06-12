@@ -29,7 +29,13 @@ namespace Mleczarnia
             }
             farmsList.ItemsSource = Rows;
         }
-       
+        private ListCollectionView View
+        {
+            get
+            {
+                return (ListCollectionView)CollectionViewSource.GetDefaultView(Rows);
+            }
+        }
         private void TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             farmsList.Items.Refresh();
@@ -92,6 +98,15 @@ namespace Mleczarnia
                 adress.Focusable = true;
                 nip.Focusable = true;
             }
+        }
+        private void GroupSurname(object sender, RoutedEventArgs e)
+        {
+            View.GroupDescriptions.Clear();
+            View.GroupDescriptions.Add(new PropertyGroupDescription("surname[0]"));
+        }
+        private void GroupNone(object sender, RoutedEventArgs e)
+        {
+            View.GroupDescriptions.Clear();
         }
     }
 }

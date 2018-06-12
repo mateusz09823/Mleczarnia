@@ -36,8 +36,14 @@ namespace Mleczarnia
             }
             productsList.ItemsSource = Rows;
         }
+        private ListCollectionView View
+        {
+            get
+            {
+                return (ListCollectionView)CollectionViewSource.GetDefaultView(Rows);
+            }
+        }
 
-         
 
         private void TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
@@ -106,6 +112,40 @@ namespace Mleczarnia
         private void productsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+        private void Filter(object sender, RoutedEventArgs e)
+        {
+            float minimuAmountOfMilk;
+            if (float.TryParse(milk.Text, out minimuAmountOfMilk))
+            {
+                View.Filter = delegate (object item)
+                {
+                    Product product = item as Product;
+                    if (product != null)
+                    {
+                        return (product.amountOfMilk > minimuAmountOfMilk);
+                    }
+                    return false;
+                };
+            }
+        }
+        private void FilterNone(object sender, RoutedEventArgs e)
+        {
+            View.Filter = null;
+        }
+        private void GroupName(object sender, RoutedEventArgs e)
+        {
+            View.GroupDescriptions.Clear();
+            View.GroupDescriptions.Add(new PropertyGroupDescription("name"));
+        }
+        private void GroupType(object sender, RoutedEventArgs e)
+        {
+            View.GroupDescriptions.Clear();
+            View.GroupDescriptions.Add(new PropertyGroupDescription("type"));
+        }
+        private void GroupNone(object sender, RoutedEventArgs e)
+        {
+            View.GroupDescriptions.Clear();
         }
     }
 }

@@ -13,6 +13,22 @@
         <CommandBinding Command="cmds:Commands.Return" Executed="Return_Executed"/>
         <CommandBinding Command="cmds:Commands.Add" Executed="Add_Executed"/>
     </Window.CommandBindings>
+    <Window.Resources>
+        <DataTemplate x:Key="ElementTemplate">
+            <Border Background="#FF76EDA6" BorderThickness="1" Margin="1" BorderBrush="Black"  CornerRadius="6" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <StackPanel   Margin="2px" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label  Content="{Binding Product.name}" FontSize="20" FontFamily="Tw Cen MT Condensed" FontWeight="Bold" HorizontalAlignment="Right"></Label>
+                    <Label  Content="{Binding amount}" FontSize="20" FontFamily="Tw Cen MT Condensed" FontWeight="Bold" HorizontalAlignment="Left"></Label>
+                    <Label  Content="{Binding date}" FontSize="20" FontFamily="Tw Cen MT Condensed" ></Label>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="GroupTemplate">
+            <TextBlock Text="{Binding Path=Name}"
+                        FontWeight="Bold" Foreground="White" Background="ForestGreen"
+                        Margin="0,5,0,0" Padding="3"/>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -32,19 +48,21 @@
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">Dodaj</TextBlock>
                 </StackPanel>
             </Button>
+            <ComboBox SelectedIndex="0">
+                <ComboBoxItem Selected="GroupNone">Bez grupowania</ComboBoxItem>
+                <ComboBoxItem Selected="GroupName">Grupuj po nazwie produktu</ComboBoxItem>
+            </ComboBox>
+            <Label>Ilość produktu od:</Label>
+            <TextBox MinWidth="50" Name="amountOfProduct"/>
+            <Button Click="Filter">Filtruj</Button>
+            <Button Click="FilterNone">Usuń Filtr</Button>
         </ToolBar>
         <Grid Margin="5,5,2,5.4" Grid.Row="1">
-            <ListView  Background="#FFCBFFC9" Name="productionList" Grid.ColumnSpan="4" Grid.RowSpan="4" ItemsSource="{StaticResource mProducts}"
-                   SelectionChanged="ListView_SelectionChanged"   >
-
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Produkt" Width="210"  DisplayMemberBinding="{Binding Product.name}" />
-                        <GridViewColumn Header="Ilość" Width="120" DisplayMemberBinding="{Binding amount}" />
-                        <GridViewColumn Header="Data" Width="120" DisplayMemberBinding="{Binding date}" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            <ListBox  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Background="#FFCBFFC9" Name="productionList" SelectionChanged="ListView_SelectionChanged" Grid.ColumnSpan="4" Grid.RowSpan="4" ItemTemplate="{StaticResource ElementTemplate}">
+                <ListBox.GroupStyle>
+                    <GroupStyle HeaderTemplate="{StaticResource GroupTemplate}"/>
+                </ListBox.GroupStyle>
+            </ListBox>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1" Margin="5px" DataContext="{Binding ElementName=productionList, Path=SelectedItem}">
             <Grid.RowDefinitions>
