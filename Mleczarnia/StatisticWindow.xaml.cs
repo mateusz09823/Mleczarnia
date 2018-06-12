@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace Mleczarnia
@@ -143,7 +144,7 @@ namespace Mleczarnia
             return doc;
         }
 
-        private void PrintButtonCLick(object sender, RoutedEventArgs e)
+        private void Print_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             PrintDialog printDlg = new PrintDialog();
             FlowDocument doc = CreateFlowDocument();
@@ -159,7 +160,7 @@ namespace Mleczarnia
             printDlg.PrintDocument(idpSource.DocumentPaginator, "Statystyki Mleczarni");
         }
 
-        private void BackButtonCLick(object sender, RoutedEventArgs e)
+        private void Return_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             MainWindow wnd = new MainWindow();
             wnd.Show();
