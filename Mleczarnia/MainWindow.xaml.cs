@@ -48,51 +48,50 @@ namespace Mleczarnia
             wyjscie.BeginAnimation(WidthProperty, wanim);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {//gospodarstwa
-            
+        private void FarmsButton(object sender, RoutedEventArgs e)
+        {            
             FarmsWindow wnd = new FarmsWindow();
             wnd.Show();
             this.Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {//produkty
-            ProductsWindow wnd = new ProductsWindow();
-            wnd.Show();
-            this.Close();
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {//produkcja
-            ProductionWindow wnd = new ProductionWindow();
-            wnd.Show();
-            this.Close();
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {//sprzedaż
-            SalesWindow wnd = new SalesWindow();
-            wnd.Show();
-            this.Close();
-        }
-
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {//statystyki
-            StatisticWindow wnd = new StatisticWindow();
-            wnd.Show();
-            this.Close();
-        }
-
-        private void Button_Click_6(object sender, RoutedEventArgs e)
-        {//dostawy
+        private void SupplyButton(object sender, RoutedEventArgs e)
+        {
             SupplyWindow wnd = new SupplyWindow();
             wnd.Show();
             this.Close();
         }
 
+        private void ProductsButton(object sender, RoutedEventArgs e)
+        {
+            ProductsWindow wnd = new ProductsWindow();
+            wnd.Show();
+            this.Close();
+        }
+
+        private void ProductionButton(object sender, RoutedEventArgs e)
+        {
+            ProductionWindow wnd = new ProductionWindow();
+            wnd.Show();
+            this.Close();
+        }
+
+        private void SalesButton(object sender, RoutedEventArgs e)
+        {
+            SalesWindow wnd = new SalesWindow();
+            wnd.Show();
+            this.Close();
+        }
+
+        private void StatisticButton(object sender, RoutedEventArgs e)
+        {
+            StatisticWindow wnd = new StatisticWindow();
+            wnd.Show();
+            this.Close();
+        }
+
         private void Return_Executed(object sender, ExecutedRoutedEventArgs e)
-        {//wyjście
+        {
             this.Close();
         }
     }

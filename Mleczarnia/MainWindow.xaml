@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:Mleczarnia"
         xmlns:cmds="clr-namespace:Mleczarnia"
         mc:Ignorable="d"
-        Title="Menu" Height="500" Width="550" MinHeight="450" MinWidth="470" Background="#FF83FF80" Foreground="Black">
+        Title="Menu" Height="600" Width="700" MinHeight="600" MinWidth="700" Background="#FF83FF80" Foreground="Black">
     <Window.CommandBindings>
         <CommandBinding Command="cmds:Commands.Return" Executed="Return_Executed"/>
     </Window.CommandBindings>
-      <Grid Margin="5px">
+    <Grid Margin="5px">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="1.4*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -22,41 +22,48 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.ColumnSpan="2" FontSize="48" FontWeight="Bold" FontFamily="Tw Cen MT Condensed" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="System zarządzania mleczarnią"/></TextBlock>
-        <Button Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Background="#FFCBFFC9" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click" x:Name="gospodarstwa">
+        <StackPanel Orientation="Vertical" Grid.ColumnSpan="2">
+           
+            <Path  Data="M 5.9910597,0.03072714 C 5.2251307,0.29293814 4.9364217,2.2469371 5.3035597,5.8119771 C 5.6292427,8.9744771 6.1659907,12.461977 6.4910597,13.561977 C 6.8751657,14.861751 5.8257037,17.62139 3.5223097,21.436977 C -0.49224731,28.087118 -1.0744393,30.599174 1.7723097,34.218227 C 4.3414137,37.484313 11.056044,38.720008 14.39731,36.530727 C 17.626836,34.41466 18.99106,35.658552 18.99106,38.311977 C 18.99106,41.298611 21.659577,46.023929 26.11606,50.936977 C 29.942583,55.155526 31.99106,61.111938 31.99106,67.968227 L 31.99106,71.999477 L 7.3348097,72.030727 L 7.0223097,77.999477 L 127.20981,77.811977 L 127.27231,71.530727 L 97.45981,71.655727 C 94.9236,71.667766 98.65687,37.989914 99.83481,36.811977 C 100.44945,36.197332 101.25722,36.710463 102.05356,38.218227 C 103.5801,41.108503 112.69145,53.42379 115.70981,56.686977 C 118.51759,59.7225 119.56482,58.220018 120.99106,56.561977 C 122.72073,54.551201 121.59362,52.026149 116.70981,49.530727 C 111.06423,46.646071 107.78024,41.732664 103.42856,28.280727 C 102.35801,24.971435 101.23125,21.994983 100.27231,19.811977 C 99.3597,17.734445 98.12323,15.788214 97.77231,15.405727 C 97.36509,14.961874 92.60186,13.331266 84.24106,14.593227 C 78.11179,15.518365 70.89084,14.902569 62.49106,14.780727 C 20.046434,14.165052 13.745649,12.898642 9.5535597,4.3432271 C 8.0049107,1.1826711 6.7569887,-0.23148386 5.9910597,0.03072714 z M 82.36606,46.999477 C 84.48281,47.124293 85.14764,49.104417 86.52231,53.061977 C 87.7641,56.636977 89.07516,62.343772 89.45981,65.749477 L 90.17856,71.936977 L 39.70981,72.093227 L 40.36606,66.468227 C 41.436294,57.3622 41.800802,57.061977 51.08481,57.061977 C 58.65572,57.061977 59.67222,56.786106 69.49106,52.061977 C 76.66851,48.6087 80.24931,46.874661 82.36606,46.999477 z "
+            Stroke="Black" StrokeThickness="7" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <TextBlock  FontSize="48" FontWeight="Bold" FontFamily="Tw Cen MT Condensed" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="   System zarządzania mleczarnią"/></TextBlock>
+        </StackPanel>
+        
+        <Button Style="{StaticResource RoundedButtonStyle}" Grid.Row="1" Background="#FFCBFFC9" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="FarmsButton" x:Name="gospodarstwa">
             <StackPanel Orientation="Horizontal">
                 <Image Height="76" Source="appbar.group.png" Stretch="Fill" Width="76"/>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Gospodarze</TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Row="1" Grid.Column="1" Margin="5px" Padding="2px"  FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_6" Background="#FFCBFFC9" Style="{StaticResource RoundedButtonStyle}" x:Name="dostawy">
+        
+        <Button Grid.Row="1" Grid.Column="1" Margin="5px" Padding="2px"  FontFamily="Tw Cen MT Condensed" FontSize="36" Click="SupplyButton" Background="#FFCBFFC9" Style="{StaticResource RoundedButtonStyle}" x:Name="dostawy">
             <StackPanel Orientation="Horizontal">
                 <Image Height="76" Source="appbar.truck.png" Stretch="Fill" Width="76"/>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Dostawy</TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Row="2" Grid.Column="0" Margin="5px" Padding="2px" Background="#FFCBFFC9" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_1" Style="{StaticResource RoundedButtonStyle}" x:Name="produkty">
+        <Button Grid.Row="2" Grid.Column="0" Margin="5px" Padding="2px" Background="#FFCBFFC9" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="ProductsButton" Style="{StaticResource RoundedButtonStyle}" x:Name="produkty">
             
             <StackPanel Orientation="Horizontal">
                 <Image Height="76" Source="appbar.food.png" Stretch="Fill" Width="76"/>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Produkty</TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Row="2" Grid.Column="1" Margin="5px" Padding="2px" Background="#FFCBFFC9" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_2" Style="{StaticResource RoundedButtonStyle}" x:Name="produkcja">
+        <Button Grid.Row="2" Grid.Column="1" Margin="5px" Padding="2px" Background="#FFCBFFC9" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="ProductionButton" Style="{StaticResource RoundedButtonStyle}" x:Name="produkcja">
             
             <StackPanel Orientation="Horizontal">
                 <Image Height="65" Source="appbar.cogs.png" Stretch="Fill" Width="65"/>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Produkcja</TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Row="3" Grid.Column="0" Margin="5px" Padding="2px" Background="#FFCBFFC9" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_3" Style="{StaticResource RoundedButtonStyle}" x:Name="sprzedaz">
+        <Button Grid.Row="3" Grid.Column="0" Margin="5px" Padding="2px" Background="#FFCBFFC9" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="SalesButton" Style="{StaticResource RoundedButtonStyle}" x:Name="sprzedaz">
             
             <StackPanel Orientation="Horizontal">
                 <Image Height="76" Source="appbar.billing.png" Stretch="Fill" Width="76"/>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Sprzedaż</TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Row="3" Grid.Column="1" Margin="5px" Padding="2px" Background="#FFCBFFC9" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="Button_Click_4" Style="{StaticResource RoundedButtonStyle}" x:Name="statystyki">
+        <Button Grid.Row="3" Grid.Column="1" Margin="5px" Padding="2px" Background="#FFCBFFC9" FontFamily="Tw Cen MT Condensed" FontSize="36" Click="StatisticButton" Style="{StaticResource RoundedButtonStyle}" x:Name="statystyki">
            
             <StackPanel Orientation="Horizontal">
                 <Image Height="76" Source="appbar.clipboard.variant.edit.png" Stretch="Fill" Width="76"/>
@@ -68,8 +75,6 @@
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Wyjście</TextBlock>
                 <Image Height="76" Source="exit.png" Stretch="Fill" Width="76"/>
             </StackPanel>
-            
-
         </Button>
 
     </Grid>
