@@ -98,7 +98,13 @@
             <Label Grid.Row="1" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Data:</Label>
             <TextBox Name="date"  Grid.Row="1" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=date, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
             <Label Grid.Row="2" Grid.Column="0" Margin="5px" Padding="2px" FontFamily="Tw Cen MT Condensed" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">Ilość mleka:</Label>
-            <TextBox Name="milkAmount" Grid.Row="2" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" Text="{Binding Path=milkAmount, UpdateSourceTrigger=PropertyChanged,StringFormat=N2}" VerticalAlignment="Center"/>
+            <TextBox Name="milkAmount" Grid.Row="2" Grid.Column="1" FontSize="24" FontFamily="Tw Cen MT Condensed" VerticalAlignment="Center">
+                <Binding Path="milkAmount"  UpdateSourceTrigger="PropertyChanged" StringFormat="{}{0:#.000}">
+                    <Binding.ValidationRules>
+                        <local:MilkValidator/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox>
 
             <Grid Grid.ColumnSpan="2" Grid.Row="5">
                 <Grid.ColumnDefinitions>

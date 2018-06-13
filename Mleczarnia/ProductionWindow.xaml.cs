@@ -107,10 +107,14 @@ namespace Mleczarnia
                 float sumOfMilk =(float) item.Product.amountOfMilk *(int) item.amount;
                 if (item.milkChange != sumOfMilk)
                 {
-                    float milk = 0;
-                    milk = sumOfMilk - (float)item.milkChange;
-                    tank.tankFilling -= milk;
-                    db.SaveChanges();
+                    if ((tank.tankFilling <= tank.tankCapacity) && (tank.tankFilling >= 0))
+                    {
+                        float milk = 0;
+                        milk = sumOfMilk - (float)item.milkChange;
+                        tank.tankFilling -= milk;
+                        db.SaveChanges();
+                    }
+                        
                 }
             }
             MainWindow wnd = new MainWindow();

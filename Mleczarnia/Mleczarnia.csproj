@@ -70,6 +70,7 @@
     <Compile Include="Farm.cs">
       <DependentUpon>MleczarniaDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="MilkValidator.cs" />
     <Compile Include="MleczarniaDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

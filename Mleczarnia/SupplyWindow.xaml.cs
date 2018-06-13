@@ -106,10 +106,13 @@ namespace Mleczarnia
             {
                 if(item.milkAmount!=item.milkEntrenceValue)
                 {
-                    float milk=0;
-                    milk = (float)item.milkAmount - (float)item.milkEntrenceValue;
-                    tank.tankFilling += milk;
-                    db.SaveChanges();
+                    if((tank.tankFilling<=tank.tankCapacity)&&(tank.tankFilling>=0))
+                    {
+                        float milk = 0;
+                        milk = (float)item.milkAmount - (float)item.milkEntrenceValue;
+                        tank.tankFilling += milk;
+                        db.SaveChanges();
+                    }
                 }
             }
             MainWindow wnd = new MainWindow();
@@ -161,7 +164,6 @@ namespace Mleczarnia
             View.GroupDescriptions.Clear();
         }
 
- 
     }
 
     public class Farms : ObservableCollection<Farm>
