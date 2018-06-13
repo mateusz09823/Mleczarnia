@@ -35,6 +35,7 @@ namespace Mleczarnia
             foreach (var item in sale)
             {
                 item.production = productions.Find(item.productionID).Product.name;
+                item.entrenceAmount = item.amountToSell;
                 Rows.Add(item);
             }
            salesList.ItemsSource = Rows;
@@ -100,6 +101,14 @@ namespace Mleczarnia
 
         private void Return_Executed(object sender, ExecutedRoutedEventArgs e)
         {
+            foreach (var item in Rows)
+            {
+                if (item.entrenceAmount != item.amountToSell)
+                {
+                    item.Production.amount -= (int)item.amountToSell - (int)item.entrenceAmount;
+                    db.SaveChanges();
+                }
+            }
             MainWindow wnd = new MainWindow();
             wnd.Show();
             db.SaveChanges();

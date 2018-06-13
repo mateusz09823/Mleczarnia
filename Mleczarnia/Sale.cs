@@ -18,6 +18,7 @@ namespace Mleczarnia
         public int productionID { get; set; }
         public Nullable<float> amountToSell { get; set; }
         public Nullable<float> price { get; set; }
+        public Nullable<float> entrenceAmount { get; set; }
         public string production { get; set; }
         public virtual Production Production { get; set; }
     }

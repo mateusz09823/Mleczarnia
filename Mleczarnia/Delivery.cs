@@ -18,6 +18,7 @@ namespace Mleczarnia
         public int farmID { get; set; }
         public Nullable<System.DateTime> date { get; set; }
         public Nullable<float> milkAmount { get; set; }
+        public Nullable<float> milkEntrenceValue { get; set; }
         public string farm { get; set; }
         public virtual Farm Farm { get; set; }
     }

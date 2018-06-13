@@ -35,6 +35,7 @@ namespace Mleczarnia
             foreach (var item in delivery)
             {
                 item.farm = farms.Find(item.farmID).name + " " + farms.Find(item.farmID).surname;
+                item.milkEntrenceValue = item.milkAmount;
                 Rows.Add(item);
             }
             deliveryList.ItemsSource = Rows;
@@ -99,6 +100,18 @@ namespace Mleczarnia
 
         private void Return_Executed(object sender, ExecutedRoutedEventArgs e)
         {
+            var tanks = db.Tank;
+            var tank = db.Tank.Single(a => a.tankID == 1);
+            foreach (var item in Rows)
+            {
+                if(item.milkAmount!=item.milkEntrenceValue)
+                {
+                    float milk=0;
+                    milk = (float)item.milkAmount - (float)item.milkEntrenceValue;
+                    tank.tankFilling += milk;
+                    db.SaveChanges();
+                }
+            }
             MainWindow wnd = new MainWindow();
             wnd.Show();
             db.SaveChanges();
@@ -110,6 +123,8 @@ namespace Mleczarnia
             Delivery f = new Delivery();
             f.farmID = 1;
             f.date = DateTime.Now;
+            f.milkEntrenceValue = 0;
+            f.milkAmount = 0;
             db.Delivery.Add(f);
             db.SaveChanges();
             Rows.Add(f);
@@ -145,6 +160,8 @@ namespace Mleczarnia
         {
             View.GroupDescriptions.Clear();
         }
+
+ 
     }
 
     public class Farms : ObservableCollection<Farm>

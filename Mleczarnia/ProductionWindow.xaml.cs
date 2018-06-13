@@ -35,6 +35,7 @@ namespace Mleczarnia
             foreach (var item in production)
             {
                 item.product = products.Find(item.productID).name;
+                item.milkChange = (float)item.Product.amountOfMilk * (float)item.amount;
                 Rows.Add(item);
             }
            productionList.ItemsSource = Rows;
@@ -99,6 +100,19 @@ namespace Mleczarnia
 
         private void Return_Executed(object sender, ExecutedRoutedEventArgs e)
         {
+            var tanks = db.Tank;
+            var tank = db.Tank.Single(a => a.tankID == 1);
+            foreach (var item in Rows)
+            {
+                float sumOfMilk =(float) item.Product.amountOfMilk *(int) item.amount;
+                if (item.milkChange != sumOfMilk)
+                {
+                    float milk = 0;
+                    milk = sumOfMilk - (float)item.milkChange;
+                    tank.tankFilling -= milk;
+                    db.SaveChanges();
+                }
+            }
             MainWindow wnd = new MainWindow();
             wnd.Show();
             db.SaveChanges();
